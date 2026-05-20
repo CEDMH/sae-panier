@@ -2,10 +2,12 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Connexion</title>
-    <link rel="stylesheet" href="assets/css/custom.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <title>Se connecter</title>
 </head>
 
 <body>
@@ -18,7 +20,7 @@
     <main>
         <section>
             <form action="#" method="post">
-                <fieldset>
+                <section>
                     <legend>Se connecter</legend>
                     <div>
                         <label>
@@ -43,7 +45,7 @@
                     <div>
                         <button type="submit">Se connecter</button>
                     </div>
-                </fieldset>
+                </section>
             </form>
         </section>
 

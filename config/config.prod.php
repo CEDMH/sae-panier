@@ -3,7 +3,7 @@
 /* Fichier : /config/config.prod.php */
 
 // le nom de la base de données
-define('APP_DB_NAME', 's2.devweb.tp2');
+define('APP_DB_NAME', 's2.sae.panier');
 
 // le nom de la machine qui héberge le serveur MYSQL
 define('APP_DB_HOST', '?????');
