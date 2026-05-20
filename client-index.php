@@ -14,7 +14,7 @@
 
     <header>
         <h1>Bienvenue sur le site</h1>
-        <p>Choisissez un mode de connexion ou inscrivez-vous pour créer un compte.</p>
+        <p>La meilleure épicerie de Gordac</p>
     </header>
 
     <main>
