@@ -1,3 +1,5 @@
+<?php require 'bootstrap.php' ?>
+<?php require 'helpers/functions.php' ?>
 <!DOCTYPE html>
 <html lang="fr">
 
