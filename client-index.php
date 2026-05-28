@@ -30,9 +30,9 @@
             <i class="fa-solid fa-bars" style="color: rgb(0, 122, 80);"></i>
           </summary>
             <ul dir="rtl">
-              <li><a href="client-index.php">Accueil</a></li>
-              <li><a href="panier.php">Panier</a></li>
-              <li><a href="catalogue.php">Catalogue</a></li>
+              <li id="case"><a href="client-index.php">Accueil</a></li>
+              <li id="case"><a href="panier.php">Panier</a></li>
+              <li id="case"><a href="catalogue.php">Catalogue</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button></li>
             </ul>
         </details>
