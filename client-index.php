@@ -23,6 +23,9 @@
     <ul>
       <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
