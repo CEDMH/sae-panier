@@ -1,9 +1,14 @@
+html {
+    background-color: #FDFAF5;
+}
+
 .header {
-    margin-top: 1%;
+    background-color: #FCF6EE;
+    box-shadow: 0px 2px 8px;
+}
+
+#menu-burger {
     margin-right: 1%;
-    margin-left: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
 }
 
 .dropdown {
@@ -12,11 +17,35 @@
     background: none;
     border: none;
     font-size: 1.5rem;
+    background-color: #FCF6EE !important;
 }
 
 #case :hover {
     background-color: orange;
     color: aliceblue;
+}
+
+summary::after{
+background-image: url(../image/bars-solid.png) !important;
+}
+
+[data-theme=dark]{
+summary::after{
+background-image: url(../image/bars-solid-light.png) !important;
+};
+.header{
+background-color: #202632 !important;
+box-shadow: 0px 2px 8px !important;
+};
+}
+
+#img-accueil {
+    border-radius: 1.5rem;
+    width: 90%;
+    display: block;
+    margin: 5%;
+    max-width: 100%;
+    height: auto;
 }
 
 @media screen and (min-width: 900px) {
@@ -40,7 +69,7 @@
             
             #logo {
                 width: 55%;
-                margin-left: 1%;
+                margin-left: 15%;
                 margin-right: 0%;
             }
             

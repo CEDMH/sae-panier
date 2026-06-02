@@ -30,7 +30,7 @@
       <li>
         <details class="dropdown">
           <summary>
-            <i class="fa-solid fa-bars" style="color: rgb(0, 122, 80);"></i>
+            
           </summary>
             <ul dir="rtl">
               <li id="case"><a href="client-index.php">Accueil</a></li>
@@ -44,8 +44,9 @@
   </nav>
 
   <main>
-    <article>
-        <p>Ceci est un exemple temporaire</p>
+    <article id="super-accueil">
+      <p></p>
+      <a href="#paniers" id="redirection">Voir plus</a>
     </article>
   </main>
 
