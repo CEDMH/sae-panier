@@ -1,5 +1,6 @@
-<?php require 'bootstrap.php' ?>
-<?php require 'helpers/functions.php' ?>
+<?php 
+require 'bootstrap.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,27 +22,15 @@
 
     <main>
         <section>
-            <form action="#" method="post">
+            <form action="" method="post">
                 <section>
-                    <legend>Se connecter</legend>
-                    <div>
-                        <label>
-                            <input type="radio" name="role" value="admin" checked>
-                            Administrateur
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="radio" name="role" value="client">
-                            Client
-                        </label>
-                    </div>
                     <div>
                         <label for="username">Nom d'utilisateur :</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" placeholder=""required>
                     </div>
                     <div>
                         <label for="password">Mot de passe :</label>
+
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div>
@@ -52,7 +41,8 @@
         </section>
 
         <section>
-            <p>Pas encore inscrit ? <a href="inscription.html">S'inscrire</a></p>
+            <p>Compte ou mot de passe oublié ? <a href="inscription.html">Oublié</a></p>
+            <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>
 
     </main>
