@@ -1,23 +1,25 @@
 <?php 
 require 'bootstrap.php';
 
-
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $numerocarte = trim($_POST['numerocarte'] ?? '');
+    $nom       = trim($_POST['nom'] ?? '');
+    $telephone = trim($_POST['telephone'] ?? '');
 
-    if ($numerocarte) {
-        $stmt = $pdo->prepare('SELECT * FROM clients WHERE num_carte_fidelite = :numerocarte LIMIT 1');
-        $stmt->execute([':numerocarte' => $numerocarte]);
+    if ($nom && $telephone) {
+        $stmt = $pdo->prepare('SELECT * FROM clients WHERE nom = :nom AND telephone = :telephone LIMIT 1');
+        $stmt->execute([
+            ':nom'       => $nom,
+            ':telephone' => $telephone,
+        ]);
         $client = $stmt->fetch();
 
         if ($client) {
-            
             if ($client['est_bloque'] == 1) {
                 $error = 'Votre compte est bloqué. Veuillez contacter le support.';
             } else {
-                // Connexion réussie
+                
                 $_SESSION['client_id']     = $client['id'];
                 $_SESSION['client_nom']    = $client['nom'];
                 $_SESSION['client_prenom'] = $client['prenom'];
@@ -27,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } else {
-            $error = 'Numéro de carte de fidélité introuvable.';
+            $error = 'Aucun compte trouvé avec ces informations.';
         }
     } else {
-        $error = 'Veuillez saisir votre numéro de carte.';
+        $error = 'Veuillez remplir tous les champs.';
     }
 }
 ?>
@@ -51,22 +53,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <header>
-        <h1>Bienvenue sur le site</h1>
-        <p>Choisissez un mode de connexion ou inscrivez-vous pour créer un compte.</p>
+        <h1>Numéro de carte oublié</h1>
+        <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
     </header>
 
     <main>
         <section>
 
             <?php if ($error): ?>
-            <p><?php echo htmlspecialchars($error) ?></p>
+                <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
 
             <form action="" method="post">
                 <section>
                     <div>
-                        <label for="username">Numéro de carte de fidélité :</label>
-                        <input type="text" id="numerocarte" name="numerocarte" required>
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div>
+                        <label for="telephone">Numéro de téléphone :</label>
+                        <input type="tel" id="telephone" name="telephone" required>
                     </div>
                     <div>
                         <button type="submit">Se connecter</button>
@@ -76,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </section>
 
         <section>
-            <p>Numéro de carte oublié ? <a href="./numero-carte-oublié.php">Oublié</a></p>
+            <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>
 

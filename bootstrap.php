@@ -1,6 +1,6 @@
-<?php session_start();
-
+<?php 
 declare (strict_types = 1);
+session_start();
 /*
   Intégration des librairies communes.
   ------------------------------------------------
@@ -14,7 +14,7 @@ declare (strict_types = 1);
 */
 
 // les fonctions de debug avec les nouvelles commandes dump() et dd()
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
 // les fonctions utilisateur
 require 'helpers/functions.php';
