@@ -37,15 +37,34 @@ background-image: url(../image/bars-solid-light.png) !important;
 background-color: #202632 !important;
 box-shadow: 0px 2px 8px !important;
 };
+.fond-d-ecran{
+background-color: #202632 !important;
+};
 }
 
-#img-accueil {
+#super-accueil {
+    background-image: url("./../image/epicerie.jpg");
+    background-size: cover;
     border-radius: 1.5rem;
     width: 90%;
     display: block;
     margin: 5%;
     max-width: 100%;
-    height: auto;
+    padding: 9%;
+    box-shadow: 0px 3px 10px;
+    z-index: 0;
+}
+
+#super-accueil p {
+    color: #FFFF;
+    font-family: "Sansita", sans-serif;
+    font-size: 50px;
+    z-index: 100;
+}
+
+#les-paniers {
+    margin: 5%;
+    border-radius: 0.5rem;
 }
 
 @media screen and (min-width: 900px) {
