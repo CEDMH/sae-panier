@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($client['est_bloque'] == 1) {
                 $error = 'Votre compte est bloqué. Veuillez contacter le support.';
             } else {
-                // Connexion réussie
+                
                 $_SESSION['client_id']     = $client['id'];
                 $_SESSION['client_nom']    = $client['nom'];
                 $_SESSION['client_prenom'] = $client['prenom'];
