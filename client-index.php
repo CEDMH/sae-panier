@@ -58,9 +58,9 @@
     </article>
     <article id="les-paniers">
       <ul id="panier">
-        <li><img src=""><p>Panier 1 personne</p><a href="catalogue.php">Réserver Panier</a></li>
-        <li><img src=""><p>Panier 2 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
-        <li><img src=""><p>Panier 3-4 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
+        <li><img src="./assets/image/panier-m.jpg"><p>Panier 1 personne</p><a href="catalogue.php">Réserver Panier</a></li>
+        <li><img src="./assets/image/panier-l.jpg"><p>Panier 2 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
+        <li><img src="./assets/image/panier-xl.jpg"><p>Panier 3-4 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
       </ul>
     </article>
   </main>
