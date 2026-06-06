@@ -1,17 +1,3 @@
-h1 {
-    color: #202632;
-    font-family: "Sansita", sans-serif;
-    z-index: 100;
-}
-
-p {
-    color: #202632;
-    font-family: "Vollkorn", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
 #super-accueil {
     background-image: url("./../image/epicerie.jpg");
     background-size: cover;
@@ -75,12 +61,6 @@ p {
     #paniers h2{
         color: #FCF6EE;
     }
-    h1 {
-        color: #FCF6EE;
-    }
-    p{
-        color: #FCF6EE;
-    }
     #super-accueil{
         box-shadow: 0px 0px 0px;
         border-style: solid;
@@ -94,12 +74,6 @@ p {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     #paniers h2{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    h1 {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    p{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     #super-accueil p{

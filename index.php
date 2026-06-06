@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
 
-<body>
+<body class="fond-d-ecran">
 
     <nav class="header">
     <ul>
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" id="numerocarte" name="numerocarte" required>
                     </div>
                     <div>
-                        <button type="submit">Se connecter</button>
+                        <button type="submit" id="se-connecter">Se connecter</button>
                     </div>
                 </section>
             </form>

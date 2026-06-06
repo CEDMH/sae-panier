@@ -5,3 +5,21 @@ div {
 #page-index {
     margin: 5%;
 }
+
+[dyslexie-text=dys]{
+    #se-connecter{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #label{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #numero-carte{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
+
+[data-theme=dark]{
+    #numerocarte{
+        background-color: #FCF6EE !important;
+    }
+}

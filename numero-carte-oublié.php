@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
 
-<body>
+<body class="fond-d-ecran">
 
     <nav class="header">
     <ul>
