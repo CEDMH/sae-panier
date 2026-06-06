@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>PANIER</title>
     <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
 
     <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
     <link href="assets/css/style.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>

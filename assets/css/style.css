@@ -5,6 +5,7 @@ html {
 .header {
     background-color: #FCF6EE;
     box-shadow: 0px 2px 8px;
+    position: fixed;
 }
 
 #menu-burger {

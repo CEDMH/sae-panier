@@ -15,9 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/client-index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/client-index.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -48,6 +49,10 @@
     </ul>
   </nav>
 
+  <br>
+  <br>
+  <br>
+
   <main>
     <div id="super-accueil">
       <p>L'Épicerie Le Coin Des Saveurs Vous souhaite le bonjour !</p>
@@ -57,11 +62,21 @@
       <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver !</p>
     </article>
     <article id="les-paniers">
-      <ul id="panier">
-        <li><img src="./assets/image/panier-m.jpg"><p>Panier 1 personne</p><a href="catalogue.php">Réserver Panier</a></li>
-        <li><img src="./assets/image/panier-l.jpg"><p>Panier 2 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
-        <li><img src="./assets/image/panier-xl.jpg"><p>Panier 3-4 personnes</p><a href="catalogue.php">Réserver Panier</a></li>
-      </ul>
+        <div id="paniers">
+          <h2>Panier 1 personne</h2>
+          <img src="./assets/image/panier-m.jpg" id="image-panier">
+          <a href="catalogue.php">Réserver Panier</a>
+        </div>
+        <div id="paniers">
+          <h2>Panier 2 personnes</h2>
+          <img src="./assets/image/panier-l.jpg" id="image-panier">
+          <a href="catalogue.php">Réserver Panier</a>
+        </div>
+        <div id="paniers">
+          <h2>Panier 3-4 personnes</h2>
+          <img src="./assets/image/panier-xl.jpg" id="image-panier">
+          <a href="catalogue.php">Réserver Panier</a>
+        </div>
     </article>
   </main>
 

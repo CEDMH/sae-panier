@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/index.css" rel="stylesheet">
 
@@ -83,13 +84,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </nav>
 
-    <header>
-        <h1>Bienvenue sur le site</h1>
-        <p>Choisissez un mode de connexion ou inscrivez-vous pour créer un compte.</p>
-    </header>
+    <br>
+    <br>
+    <br>
 
     <main>
+        
         <section id="page-index">
+
+            <h1>Bienvenue sur le site</h1>
+            <p>Choisissez un mode de connexion ou inscrivez-vous pour créer un compte.</p>
 
             <?php if ($error): ?>
             <p><?php echo htmlspecialchars($error) ?></p>
