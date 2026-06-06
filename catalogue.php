@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACCUEIL</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
+    
     <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
 
     <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
@@ -50,7 +54,23 @@
   </nav>
 
   <main>
-    
+    <article id="les-paniers">
+        <div id="paniers">
+          <h2>Panier 1 personne</h2>
+          <img src="./assets/image/panier-m.jpg" id="image-panier">
+          <a href="panier.php">Réserver Panier</a>
+        </div>
+        <div id="paniers">
+          <h2>Panier 2 personnes</h2>
+          <img src="./assets/image/panier-l.jpg" id="image-panier">
+          <a href="panier.php">Réserver Panier</a>
+        </div>
+        <div id="paniers">
+          <h2>Panier 3-4 personnes</h2>
+          <img src="./assets/image/panier-xl.jpg" id="image-panier">
+          <a href="panier.php">Réserver Panier</a>
+        </div>
+    </article>
   </main>
 
 </body>
