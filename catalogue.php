@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/catalogue.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -52,6 +53,10 @@
       </li>
     </ul>
   </nav>
+
+  <br>
+  <br>
+  <br>
 
   <main>
     <article id="les-paniers">

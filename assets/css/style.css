@@ -1,5 +1,8 @@
-html {
+.fond-d-ecran {
     background-color: #FDFAF5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 .header {

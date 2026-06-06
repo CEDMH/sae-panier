@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/index.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -90,15 +91,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </nav>
 
-<body>
-
-    <header>
-        <h1>Numéro de carte oublié</h1>
-        <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
-    </header>
+    <br>
+    <br>
+    <br>
 
     <main>
-        <section>
+
+        <section id="page-index">
+
+            <h1>Numéro de carte oublié</h1>
+            <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
 
             <?php if ($error): ?>
                 <p><?php echo htmlspecialchars($error) ?></p>
@@ -121,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
 
-        <section>
+        <section id="page-index">
             <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>
