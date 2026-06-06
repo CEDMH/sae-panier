@@ -90,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
         <section id="page-index">
-// ici on affiche les erreurs que le traitement rencontre plus haut //
+ <!-- // ici on affiche les erreurs que le traitement rencontre plus haut // -->
             <?php if ($error): ?>
             <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
-// formulaire où les infos sont transmisent en method POST //
+<!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">
                 <section>
                     <div>
