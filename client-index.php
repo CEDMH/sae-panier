@@ -68,8 +68,8 @@
     </article>
     <article id="les-paniers">
         <div id="paniers">
-          <h2>Réserver votre panier !</h2>
-          <img src="./assets/image/panier-m.jpg" id="image-panier">
+          <h2>Réservez votre panier !</h2>
+          <img src="./assets/image/panier.jpg" id="image-panier">
           <a href="catalogue.php">Accéder au catalogue</a>
         </div>
     </article>
