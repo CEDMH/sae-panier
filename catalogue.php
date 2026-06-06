@@ -41,7 +41,7 @@
               <li id="case"><a href="client-index.php">Accueil</a></li>
               <li id="case"><a href="panier.php">Panier</a></li>
               <li id="case"><a href="catalogue.php">Catalogue</a></li>
-              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button></li>
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>

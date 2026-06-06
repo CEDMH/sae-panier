@@ -88,3 +88,26 @@ p {
         border-color: #FCF6EE;
     }
 }
+
+[dyslexie-text=dys]{
+    #paniers a{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #paniers h2{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #super-accueil p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 40px;
+    }
+    #super-accueil{
+        background-image: none;
+        background-color: #202632;
+    }
+}

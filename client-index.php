@@ -42,7 +42,7 @@
               <li id="case"><a href="client-index.php">Accueil</a></li>
               <li id="case"><a href="paniers.php">Panier</a></li>
               <li id="case"><a href="catalogue.php">Catalogue</a></li>
-              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button></li>
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
@@ -55,7 +55,7 @@
 
   <main>
     <div id="super-accueil">
-      <p>L'Épicerie Le Coin Des Saveurs Vous souhaite le bonjour !</p>
+      <p>L'épicerie Le Coin Des Saveurs vous souhaite le bonjour !</p>
     </div>
     <article>
       <h1>Bienvenue sur notre appli de réservation !</h1>
