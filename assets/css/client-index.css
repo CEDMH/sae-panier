@@ -25,7 +25,7 @@
 
 #image-panier {
     border-radius: 1.75rem;
-    margin-bottom: 5%;
+    margin-bottom: 8%;
 }
 
 #paniers {
@@ -34,17 +34,14 @@
 
 #paniers h2{
     color: #202632;
-    font-family: "Vollkorn", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Sansita", sans-serif;
+    z-index: 100;
 }
 
 #paniers a{
     text-decoration: none;
     color: #FCF6EE;
-    font-family: "Vollkorn", serif;
-    font-optical-sizing: auto;
+    font-family: "Martel", serif;
     font-weight: 400;
     font-style: normal;
     text-align: center;
