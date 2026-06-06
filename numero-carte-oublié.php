@@ -2,27 +2,25 @@
 require 'bootstrap.php';
 
 $error = '';
-
+// On vient recuperer les infos rentrer par l'utilisateur dans le formulaire //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom       = trim($_POST['nom'] ?? '');
     $telephone = trim($_POST['telephone'] ?? '');
-
+// La requete sql va parcourir la BD et ramene toute la ligne correspondant au nom et au numero : //
+// ':nom' est ce qu'on recoit de la BD puis on le compare avec "=> $nom" qui est ce qu'on recoit du formulaire. Et idem pour le telephone //
+// et on fini par mettre tout la ligne de la BD dans la variable $client //
     if ($nom && $telephone) {
-        $stmt = $pdo->prepare('SELECT * FROM clients WHERE nom = :nom AND telephone = :telephone LIMIT 1');
-        $stmt->execute([
-            ':nom'       => $nom,
-            ':telephone' => $telephone,
-        ]);
-        $client = $stmt->fetch();
-
+        $requete = $pdo->prepare('SELECT * FROM clients WHERE nom = :nom AND telephone = :telephone LIMIT 1'); 
+        $requete->execute([':nom' => $nom, ':telephone' => $telephone, ]); 
+        $client = $requete->fetch(); //
+// condition pour savoir si la carte est bloqué avec les infos recuperer de la BD stocké dans $client //
+// puis stockage des infos importantes dans les variables $_SESSION et redirection vers la page // 
         if ($client) {
             if ($client['est_bloque'] == 1) {
                 $error = 'Votre compte est bloqué. Veuillez contacter le support.';
             } else {
                 
-                $_SESSION['client_id']     = $client['id'];
                 $_SESSION['client_nom']    = $client['nom'];
-                $_SESSION['client_prenom'] = $client['prenom'];
                 $_SESSION['client_carte']  = $client['num_carte_fidelite'];
 
                 header('Location: client-index.php');
@@ -105,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if ($error): ?>
                 <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
-
+<!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">
                 <section>
                     <div>
