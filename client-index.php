@@ -59,13 +59,16 @@
   <br>
 
   <main>
+
     <div id="super-accueil">
       <p>L'épicerie Le Coin Des Saveurs vous souhaite le bonjour !</p>
     </div>
+
     <article>
       <h1>Bienvenue sur notre appli de réservation !</h1>
       <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver !</p>
     </article>
+
     <article id="les-paniers">
         <div id="paniers">
           <h2>Réservez votre panier !</h2>
@@ -73,6 +76,7 @@
           <a href="catalogue.php">Accéder au catalogue</a>
         </div>
     </article>
+    
   </main>
 
 </body>
