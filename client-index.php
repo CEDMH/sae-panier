@@ -1,3 +1,14 @@
+<?php
+require 'bootstrap.php';
+
+if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !empty($_SESSION['client_tel'])))) {
+    header('Location: index.php');
+    exit;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
