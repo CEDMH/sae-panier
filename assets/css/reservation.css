@@ -1,24 +1,24 @@
-#les-paniers {
+.les-paniers {
     margin: 5%;
     border-radius: 0.5rem;
 }
 
-#image-panier {
+.image-panier {
     border-radius: 1.75rem;
     margin-bottom: 8%;
 }
 
-#paniers {
+.paniers {
     margin-bottom: 10%;
 }
 
-#paniers h2{
+.paniers h2{
     color: #202632;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
 
-#paniers a{
+.paniers a{
     text-decoration: none;
     color: #FCF6EE;
     font-family: "Martel", serif;

@@ -78,11 +78,11 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
       <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver !</p>
     </article>
 
-    <article id="les-paniers">
-        <div id="paniers">
+    <article class="les-paniers">
+        <div class="paniers">
           <h2>Réservez votre panier !</h2>
-          <img src="./assets/image/panier.jpg" id="image-panier">
-          <a href="catalogue.php">Accéder au catalogue</a>
+          <img src="./assets/image/panier.jpg" class="image-panier">
+          <a href="reservation.php">Accéder aux reservations</a>
         </div>
     </article>
     

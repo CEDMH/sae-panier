@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/catalogue.css" rel="stylesheet">
+    <link href="./assets/css/reservation.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -59,20 +59,20 @@
   <br>
 
   <main>
-    <article id="les-paniers">
-        <div id="paniers">
+    <article class="les-paniers">
+        <div class="paniers">
           <h2>Panier 1 personne</h2>
-          <img src="./assets/image/panier-m.jpg" id="image-panier">
+          <img src="./assets/image/panier-m.jpg" class="image-panier">
           <a href="panier.php">Réserver Panier</a>
         </div>
-        <div id="paniers">
+        <div class="paniers">
           <h2>Panier 2 personnes</h2>
-          <img src="./assets/image/panier-l.jpg" id="image-panier">
+          <img src="./assets/image/panier-l.jpg" class="image-panier">
           <a href="panier.php">Réserver Panier</a>
         </div>
-        <div id="paniers">
+        <div class="paniers">
           <h2>Panier 3-4 personnes</h2>
-          <img src="./assets/image/panier-xl.jpg" id="image-panier">
+          <img src="./assets/image/panier-xl.jpg" class="image-panier">
           <a href="panier.php">Réserver Panier</a>
         </div>
     </article>
