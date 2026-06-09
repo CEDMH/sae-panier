@@ -55,7 +55,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             <ul dir="rtl">
               <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
 
-              /*FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU*/
+              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
               if ($aujourdhui == 2 || $aujourdhui == 3) {
@@ -78,7 +78,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     </ul>
   </nav>
 
-  /*TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE*/
+  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
   <br>
   <br>
   <br>
@@ -94,11 +94,12 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
       <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver.</p>
     </article>
 
+    <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
     <?php
 
-      $jourActuel = date('N');
+      $aujourdhui = date('N');
 
-      if ($jourActuel == 2 || $jourActuel == 3) {
+      if ($aujourdhui == 2 || $aujourdhui == 3) {
     ?>
 
     <article class="les-paniers">
