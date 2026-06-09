@@ -1,3 +1,7 @@
+html{
+    scrollbar-width: none;
+}
+
 .fond-d-ecran {
     background-color: #FDFAF5;
     margin: 0;
