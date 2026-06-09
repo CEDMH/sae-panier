@@ -29,3 +29,10 @@
     padding: 3%;
     border-radius: 0.75rem;
 }
+
+.message-fermeture {
+    text-align: center;
+    margin: 20px;
+    border-radius: 0.5rem;
+    margin-top: 130px;
+} 

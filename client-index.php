@@ -53,9 +53,24 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             
           </summary>
             <ul dir="rtl">
-              <li id="case"><a href="client-index.php" class="active">Accueil</a></li>
-              <li id="case"><a href="reservation.php">Réservation</a></li>
-              <li id="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
+
+              /*FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU*/
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 3) {
+              ?>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
+              <li class="case"><a href="panier.php">Panier</a></li>
+              /*LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD*/
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
@@ -63,6 +78,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     </ul>
   </nav>
 
+  /*TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE*/
   <br>
   <br>
   <br>
@@ -75,23 +91,41 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
     <article>
       <h1>Bienvenue sur notre appli de réservation !</h1>
-      <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver !</p>
+      <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver.</p>
     </article>
 
+    <?php
+
+      $jourActuel = date('N');
+
+      if ($jourActuel == 2 || $jourActuel == 3) {
+    ?>
+
     <article class="les-paniers">
-        <div class="paniers">
-          <h2>Réservez votre panier !</h2>
-          <img src="./assets/image/panier.jpg" class="image-panier">
-          <a href="reservation.php">Accéder aux reservations</a>
-        </div>
+      <div class="paniers">
+        <h2>Réservez votre panier !</h2>
+        <img src="./assets/image/panier.jpg" class="image-panier">
+        <a href="reservation.php">Accéder aux reservations</a>
+      </div>
     </article>
+
+    <?php
+    } else {
+    ?>
+
+    <article class="message-fermeture">
+      <div class="paniers">
+        <h2>Réservations fermées</h2>
+        <p>Revenez bientôt pour réserver nos nouveaux paniers !</p>
+      </div>
+    </article>
+
+    <?php
+    }
+    ?>
     
   </main>
 
 </body>
-
-<footer class="footer">
-    <h2>Domaine des Quillets</h2>
-  </footer>
 
 </html>

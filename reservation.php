@@ -30,6 +30,7 @@
 
 <body class="fond-d-ecran">
 
+  /*NAV/HEADER*/
   <nav class="header">
     <ul>
       <li><img src="assets/image/logo.png" id="logo"></li>
@@ -44,9 +45,23 @@
             
           </summary>
             <ul dir="rtl">
-              <li id="case"><a href="client-index.php">Accueil</a></li>
-              <li id="case"><a href="reservation.php" class="active">Réservation</a></li>
-              <li id="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
+
+              /*FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU*/
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 3) {
+              ?>
+              <li class="case"><a href="reservation.php" class="active">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
+              <li class="case"><a href="panier.php">Panier</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
@@ -54,12 +69,20 @@
     </ul>
   </nav>
 
+  /*TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE*/
   <br>
   <br>
   <br>
 
   <main>
-    <article class="les-paniers">
+    <?php
+
+      $jourActuel = date('N');
+
+      if ($jourActuel == 2 || $jourActuel == 3) {
+    ?>
+
+      <article class="les-paniers">
         <div class="paniers">
           <h2>Panier 1 personne</h2>
           <img src="./assets/image/panier-m.jpg" class="image-panier">
@@ -75,7 +98,23 @@
           <img src="./assets/image/panier-xl.jpg" class="image-panier">
           <a href="panier.php">Réserver Panier</a>
         </div>
+      </article>
+
+    <?php
+      } else {
+    ?>
+
+    <article class="message-fermeture">
+      <div class="paniers">
+        <h2>Réservations fermées</h2>
+        <p>Petit malin ! Tu pensais y arriver en passant par là ? Bien joué mais raté ! Reviens bientôt pour réserver nos nouveaux paniers !</p>
+      </div>
     </article>
+
+    <?php
+      }
+    ?>
+    
   </main>
 
 </body>

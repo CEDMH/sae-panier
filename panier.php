@@ -43,15 +43,34 @@
             
           </summary>
             <ul dir="rtl">
-              <li id="case"><a href="client-index.php">Accueil</a></li>
-              <li id="case"><a href="reservation.php">Réservation</a></li>
-              <li id="case"><a href="panier.php" class="active">Panier</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
+
+              /*FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU*/
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 3) {
+              ?>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
+              <li class="case"><a href="panier.php" class="active">Panier</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
     </ul>
   </nav>
+
+  /*TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE*/
+  <br>
+  <br>
+  <br>
 
   <main>
     

@@ -50,6 +50,13 @@
     border-radius: 0.75rem;
 }
 
+.message-fermeture {
+    text-align: center;
+    margin: 20px;
+    border-radius: 0.5rem;
+    margin-top: 130px;
+} 
+
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     .paniers a{
@@ -75,11 +82,11 @@
     .paniers h2{
         font-family: "OpenDyslexic", Arial, sans-serif;
     }
-    .super-accueil p{
-        font-family: "OpenDyslexic", Arial, sans-serif;
+    #super-accueil p{
+        font-family: 'OpenDyslexic', Arial, sans-serif !important;
         font-size: 40px;
     }
-    .super-accueil{
+    #super-accueil{
         background-image: none;
         background-color: #202632;
     }

@@ -38,7 +38,7 @@ p {
     background-color: #FCF6EE !important;
 }
 
-#case {
+.case {
     color: #202632;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
@@ -46,14 +46,26 @@ p {
     font-style: normal;
 }
 
-#case :hover {
-    background-color: #97938d;
-    color: aliceblue;
+.case :hover {
+    background-color: #202632;
+}
+
+.case-indisponible {
+    color: #202632;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style:italic;
+}
+
+.case-indisponible :hover {
+    color: red;
+    background-color: #310000;
 }
 
 .active {
     background-color: #d6d1cb;
-    color: aliceblue;
+    color: #FCF6EE;
 }
 
 .footer{
@@ -78,12 +90,25 @@ background-image: url(../image/bars-solid.png) !important;
     };
     h1 {
         color: #FCF6EE;
-    }
-    p{
+    };
+    p {
         color: #FCF6EE;
-    }
-    #case {
-        color: #FCF6EE;
+    };
+    .case a {
+        color: #ffffff;
+    };
+    .case :hover {
+        background-color: #FCF6EE;
+        color: #202632;
+    };
+    .case-indisponible a {
+        color: #ffffff;
+    };
+    .case-indisponible a:hover {
+        color: red;
+    };
+    .active a{
+        color: #000000;
     }
 }
 
