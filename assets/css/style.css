@@ -47,8 +47,17 @@ p {
 }
 
 #case :hover {
-    background-color: orange;
+    background-color: #97938d;
     color: aliceblue;
+}
+
+.active {
+    background-color: #d6d1cb;
+    color: aliceblue;
+}
+
+.footer{
+    background-color: #FCF6EE;
 }
 
 summary::after{

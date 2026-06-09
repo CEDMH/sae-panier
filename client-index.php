@@ -53,9 +53,9 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             
           </summary>
             <ul dir="rtl">
-              <li id="case"><a href="client-index.php">Accueil</a></li>
+              <li id="case"><a href="client-index.php" class="active">Accueil</a></li>
+              <li id="case"><a href="reservation.php">Réservation</a></li>
               <li id="case"><a href="panier.php">Panier</a></li>
-              <li id="case"><a href="catalogue.php">Catalogue</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
@@ -89,5 +89,9 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
   </main>
 
 </body>
+
+<footer class="footer">
+    <h2>Domaine des Quillets</h2>
+  </footer>
 
 </html>
