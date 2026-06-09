@@ -7,8 +7,6 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 

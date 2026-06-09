@@ -55,6 +55,7 @@ summary::after{
 background-image: url(../image/bars-solid.png) !important;
 }
 
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     summary::after{
         background-image: url(../image/bars-solid-light.png) !important;
@@ -77,15 +78,25 @@ background-image: url(../image/bars-solid.png) !important;
     }
 }
 
+/*INCLUSION DE LA TYPO OPENDYSLEXIC*/
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('./../fonts/OpenDyslexic-Regular.otf') format(opentype);
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
 [dyslexie-text=dys]{
     h1 {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
     p{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
 }
 
+/*MEDIA QUERIES*/
 @media screen and (min-width: 900px) {
     
             #logo {
