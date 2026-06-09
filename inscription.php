@@ -1,36 +1,36 @@
 <?php 
 require 'bootstrap.php';
 
-
 $error = '';
-// On vient recuperer l'info rentrer par l'utilisateur dans le formulaire //
+// On vient recuperer les infos rentrer par l'utilisateur dans le formulaire //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $numerocarte = trim($_POST['numerocarte'] ?? '');
-// La requete sql va parcourir la BD et ramene toute la ligne correspondant au numéro de carte de fidélité : //
-// ':numerocarte' est ce qu'on recoit de la BD puis on le compare avec "=> $numerocarte" qui est ce qu'on recoit du formulaire. //
+    $nom       = trim($_POST['nom'] ?? '');
+    $telephone = trim($_POST['telephone'] ?? '');
+// La requete sql va parcourir la BD et ramene toute la ligne correspondant au nom et au numero : //
+// ':nom' est ce qu'on recoit de la BD puis on le compare avec "=> $nom" qui est ce qu'on recoit du formulaire. Et idem pour le telephone //
 // et on fini par mettre tout la ligne de la BD dans la variable $client //
-    if ($numerocarte) {
-        $requete = $pdo->prepare('SELECT * FROM clients WHERE num_carte_fidelite = :numerocarte LIMIT 1');
-        $requete->execute([':numerocarte' => $numerocarte]);
-        $client = $requete->fetch();
+    if ($nom && $telephone) {
+        $requete = $pdo->prepare('SELECT * FROM clients WHERE nom = :nom AND telephone = :telephone LIMIT 1'); 
+        $requete->execute([':nom' => $nom, ':telephone' => $telephone, ]); 
+        $client = $requete->fetch(); //
 // condition pour savoir si la carte est bloqué avec les infos recuperer de la BD stocké dans $client //
 // puis stockage des infos importantes dans les variables $_SESSION et redirection vers la page // 
         if ($client) {
-            
             if ($client['est_bloque'] == 1) {
                 $error = 'Votre compte est bloqué. Veuillez contacter le support.';
             } else {
                 
+                $_SESSION['client_nom']    = $client['nom'];
                 $_SESSION['client_carte']  = $client['num_carte_fidelite'];
 
                 header('Location: client-index.php');
                 exit;
             }
         } else {
-            $error = 'Numéro de carte de fidélité introuvable.';
+            $error = 'Aucun compte trouvé avec ces informations.';
         }
     } else {
-        $error = 'Veuillez saisir votre numéro de carte.';
+        $error = 'Veuillez remplir tous les champs.';
     }
 }
 ?>
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
-
+    
     <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
 
     <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
@@ -94,35 +94,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
 
     <main>
-        
+
         <section id="page-index">
 
-            <h1>Bienvenue sur le site</h1>
-            <p>Choisissez un mode de connexion ou inscrivez-vous pour créer un compte.</p>
+            <h1>S'inscrie</h1>
+            <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
 
             <?php if ($error): ?>
-            <p><?php echo htmlspecialchars($error) ?></p>
+                <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
 <!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">
                 <section>
                     <div>
-                        <label for="username">Numéro de carte de fidélité :</label>
-                        <input type="text" id="numerocarte" name="numerocarte" required>
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" required>
                     </div>
                     <div>
-                        <button type="submit" id="se-connecter">Se connecter</button>
+                        <label for="telephone">Numéro de téléphone :</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    <div>
+                        <button type="submit">Se connecter</button>
                     </div>
                 </section>
             </form>
         </section>
 
         <section id="page-index">
-            <p>Numéro de carte oublié ? <a href="./numero-carte-oublié.php">Oublié</a></p>
+            <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>
 
     </main>
+    <script src="script.js"></script>
 </body>
 
 </html>

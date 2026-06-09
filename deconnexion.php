@@ -1,7 +1,7 @@
 <?php
 require 'bootstrap.php';
 
-
+// Système de déconnexion deniché sur un forum //
 // Supprimer toutes les variables de session.
 $_SESSION = array();
 
