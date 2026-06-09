@@ -68,10 +68,6 @@ p {
     color: #FCF6EE;
 }
 
-.footer{
-    background-color: #FCF6EE;
-}
-
 summary::after{
 background-image: url(../image/bars-solid.png) !important;
 }

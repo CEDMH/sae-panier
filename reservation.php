@@ -78,8 +78,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     </ul>
   </nav>
 
-  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
-
+  <!-- QAUTRE SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
   <br>
   <br>
   <br>
@@ -94,23 +93,68 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
       if ($aujourdhui == 2 || $aujourdhui == 3) {
     ?>
-
+      
+      <article style="margin-top:15px;">
+        <h1 style="text-align:center;">Les super paniers à réserver :</h1>
+        <p style="text-align:center;">Voici nos petits bijoux de cette semaine...</p>
+      </article>
+      
       <article class="les-paniers">
+
         <div class="paniers">
           <h2>Panier 1 personne</h2>
           <img src="./assets/image/panier-m.jpg" class="image-panier">
-          <a href="panier.php">Réserver Panier</a>
+          <p><?php
+          $sql = 'SELECT description FROM paniers WHERE id = 1';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['description'];
+          ?></p>
+          <p class="price"><?php
+          $sql = 'SELECT prix FROM paniers WHERE id = 1';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['prix'];
+          ?>€</p>
+          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
         </div>
+
         <div class="paniers">
           <h2>Panier 2 personnes</h2>
           <img src="./assets/image/panier-l.jpg" class="image-panier">
-          <a href="panier.php">Réserver Panier</a>
+          <p><?php
+          $sql = 'SELECT description FROM paniers WHERE id = 6';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['description'];
+          ?></p>
+          <p class="price"><?php
+          $sql = 'SELECT prix FROM paniers WHERE id = 6';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['prix'];
+          ?>€</p>
+          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
         </div>
+
         <div class="paniers">
           <h2>Panier 3-4 personnes</h2>
           <img src="./assets/image/panier-xl.jpg" class="image-panier">
-          <a href="panier.php">Réserver Panier</a>
+          <p><?php
+          $sql = 'SELECT description FROM paniers WHERE id = 3';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['description'];
+          ?></p>
+          <p class="price"><?php
+          $sql = 'SELECT prix FROM paniers WHERE id = 3';
+          $reponse = $pdo->query($sql); 
+          $descpanier = $reponse->fetch();
+          echo $descpanier['prix'];
+          ?>€</p>
+          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
         </div>
+
       </article>
 
     <?php

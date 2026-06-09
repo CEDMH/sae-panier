@@ -9,7 +9,14 @@
 }
 
 .paniers {
-    margin-bottom: 10%;
+    margin-bottom: 15%;
+    border-style: solid;
+    border-color: #dbd5ce;
+    border-width: 4px;
+    padding: 10%;
+    border-radius: 1.75rem;
+    background-color: #FCF6EE;
+    box-shadow: -5px 5px 18px;
 }
 
 .paniers h2{
@@ -35,4 +42,32 @@
     margin: 20px;
     border-radius: 0.5rem;
     margin-top: 130px;
-} 
+}
+
+.reserver {
+    margin-top: 30px;
+}
+
+.price {
+    font-size: 30px;
+    color: rgb(1, 172, 1);
+}
+
+[data-theme=dark]{
+    .price {
+        font-size: 30px;
+        color: rgb(1, 172, 1);
+    }
+    .paniers {
+        background-color: #202632;
+        border-color: #10131a;
+        box-shadow: 0px 0px 0px;
+    }
+    .paniers a{
+        color: #202632;
+        background-color: #FCF6EE;
+    }
+    h2 {
+        color: #FCF6EE;
+    }
+}
