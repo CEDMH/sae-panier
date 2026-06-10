@@ -99,7 +99,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
         <p style="text-align:center;">Voici nos petits bijoux de cette semaine...</p>
       </article>
       
-      <article class="les-paniers">
+      <div class="les-paniers">
 
         <div class="paniers">
           <h2>Panier 1 personne</h2>
@@ -116,7 +116,13 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           $descpanier = $reponse->fetch();
           echo $descpanier['prix'];
           ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
+          <div class="reserver">
+            <form action="ajouter_commande.php" method="POST">
+              <input type="hidden" name="type_panier" value="1p">
+              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <button type="submit">Réserver ce panier</button>
+            </form>
+          </div>
         </div>
 
         <div class="paniers">
@@ -155,7 +161,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
         </div>
 
-      </article>
+      </div>
 
     <?php
       } else {

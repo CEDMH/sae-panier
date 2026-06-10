@@ -82,7 +82,49 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
   <br>
 
   <main>
-    
+    <?php
+
+      if (isset($_SESSION['client_carte'])) {
+          $num_carte = $_SESSION['client_carte'];
+          
+          try {
+
+              $reqClient = $pdo->prepare("SELECT nom, prenom FROM clients WHERE num_carte_fidelite = :carte");
+              $reqClient->execute([':carte' => $num_carte]);
+              $client = $reqClient->fetch();
+
+              if ($client) {
+
+                  $reqRes = $pdo->prepare("SELECT type_panier, date_commande, date_retrait 
+                                          FROM reservations 
+                                          WHERE nom = :nom AND prenom = :prenom 
+                                          ORDER BY date_commande DESC");
+                  $reqRes->execute([
+                      ':nom'    => $client['nom'],
+                      ':prenom' => $client['prenom']
+                  ]);
+
+                  $mes_reservations = $reqRes->fetchAll();
+
+                  echo "<h2>Mes réservations actives</h2>";
+                  if (count($mes_reservations) > 0) {
+                      foreach ($mes_reservations as $res) {
+                          echo "<div class='reservation-item' style='border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;'>";
+                          echo "<p>Panier réservé : " . htmlspecialchars($res['type_panier']) . "</p>";
+                          echo "<p>Date de commande : " . htmlspecialchars($res['date_commande']) . "</p>";
+                          echo "<p>Date de retrait prévue : " . htmlspecialchars($res['date_retrait']) . "</p>";
+                          echo "</div>";
+                      }
+                  } else {
+                      echo "<p>Vous n'avez pas encore effectué de réservation.</p>";
+                  }
+              }
+          } catch (PDOException $e) {
+              echo "Erreur d'affichage : " . $e->getMessage();
+          }
+      }
+    ?>
+
   </main>
 
 </body>
