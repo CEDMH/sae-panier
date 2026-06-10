@@ -1,6 +1,41 @@
 <?php 
 require 'bootstrap.php';
 
+$error = '';
+// On vient recuperer l'info rentrer par l'utilisateur dans le formulaire //
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nom = trim($_POST['nom'] ?? '');
+    $prenom = trim($_POST['prenom'] ?? '');
+    $adresse = trim($_POST['adresse'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $telephone = trim($_POST['telephone'] ?? '');
+
+    if ($nom && $prenom && $adresse && $email && $telephone) {
+
+        do {
+            $numerocarte = strtoupper(substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 6));
+            $requete = $pdo->prepare('SELECT id FROM clients WHERE num_carte_fidelite = :numerocarte LIMIT 1');
+            $requete->execute(['numerocarte' => $numerocarte]);
+        } 
+
+        while ($requete->fetch());
+
+        $requete2 = $pdo->prepare("INSERT INTO clients (nom, prenom, adresse, email, telephone, num_carte_fidelite) VALUES (:nom, :prenom, :adresse, :email, :telephone, :num_carte_fidelite)");
+        $inscription = $requete2->execute(['nom' => $nom, 'prenom' => $prenom, 'adresse' => $adresse, 'email' => $email, 'telephone' => $telephone, 'num_carte_fidelite' => $numerocarte,]);
+
+        $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte;
+
+    if ($inscription) {
+            $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte;
+            
+        } else {
+            $error = 'Erreur lors de l\'inscription.';
+        }
+
+    } else {
+        $error = 'Veuillez remplir tous les champs.';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +101,10 @@ require 'bootstrap.php';
 
             <h1>Créer un compte</h1>
             <p>Remplissez le formulaire pour obtenir votre carte de fidélité.</p>
+            
+            <?php if ($error): ?>
+            <p><?php echo htmlspecialchars($error) ?></p>
+            <?php endif; ?>
 
             <form action="" method="post">
                 <section>
@@ -94,7 +133,6 @@ require 'bootstrap.php';
                     </div>
                 </section>
             </form>
-            <?php endif; ?>
 
         </section>
 
