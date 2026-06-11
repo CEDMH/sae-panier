@@ -16,14 +16,8 @@ if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['dat
         if ($client) {
             $nom = $client['nom'];
             $prenom = $client['prenom'];
-
-            $sql = "DELETE FROM reservations 
-                    WHERE nom = :nom 
-                    AND prenom = :prenom 
-                    AND type_panier = :type_panier 
-                    AND date_commande = :date_commande";
             
-            $retirer_la_cmd = $pdo->prepare($sql);
+            $retirer_la_cmd = $pdo->prepare("DELETE FROM reservations WHERE nom = :nom AND prenom = :prenom AND type_panier = :type_panier AND date_commande = :date_commande";);
             $retirer_la_cmd->execute([
                 ':nom'           => $nom,
                 ':prenom'        => $prenom,
