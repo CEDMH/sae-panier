@@ -71,6 +71,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
               <li class="case"><a href="panier.php" class="active">Panier</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+              <li id="case"><a href="./back/deconnexion.php"><i class="fa-solid fa-power-off"></i>Déconnexion</a></li>
             </ul>
         </details>
       </li>
