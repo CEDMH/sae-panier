@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         while ($requete->fetch());
 
-        $requete2 = $pdo->prepare("INSERT INTO clients (nom, prenom, adresse, email, telephone, num_carte_fidelite) VALUES (:nom, :prenom, :adresse, :email, :telephone, :num_carte_fidelite)");
+        $requete2 = $pdo->prepare("INSERT INTO clients (nom, prenom, adresse, email, telephone, num_carte_fidelite, date_creation) VALUES (:nom, :prenom, :adresse, :email, :telephone, :num_carte_fidelite, NOW())");
         $inscription = $requete2->execute(['nom' => $nom, 'prenom' => $prenom, 'adresse' => $adresse, 'email' => $email, 'telephone' => $telephone, 'num_carte_fidelite' => $numerocarte,]);
 
         $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte;
