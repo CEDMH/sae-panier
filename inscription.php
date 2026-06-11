@@ -22,12 +22,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $requete2 = $pdo->prepare("INSERT INTO clients (nom, prenom, adresse, email, telephone, num_carte_fidelite, date_creation) VALUES (:nom, :prenom, :adresse, :email, :telephone, :num_carte_fidelite, NOW())");
         $inscription = $requete2->execute(['nom' => $nom, 'prenom' => $prenom, 'adresse' => $adresse, 'email' => $email, 'telephone' => $telephone, 'num_carte_fidelite' => $numerocarte,]);
-
-        $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte;
-
+        
     if ($inscription) {
-            $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte;
-            
+
+        $email_subject = "Votre carte de fidélité - Le Coin des Saveurs";
+
+        $email_message  = "Bonjour " . $prenom . " " . $nom . ",\n\n";
+        $email_message .= "Votre carte de fidélité a bien été créée !\n\n";
+        $email_message .= "Votre numéro de carte est : " . $numerocarte . "\n\n";
+        $email_message .= "Conservez bien ce numéro, il vous sera demandé à chaque connexion.\n\n";
+        $email_message .= "À bientôt,\n";
+
+            $headers = "From: craymond@alwaysdata.net\r\n" .
+                       "Reply-To: craymond@alwaysdata.net\r\n" .
+                       "MIME-Version: 1.0\r\n" .
+                       "Content-Type: text/plain; charset=utf-8\r\n" .
+                       "X-Mailer: PHP/" . phpversion();
+
+            mail($email, $email_subject, $email_message, $headers);
+           
+
+            $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte . '. Un email de confirmation vous a été envoyé, pensez à verifier vos Spams.';
+
         } else {
             $error = 'Erreur lors de l\'inscription.';
         }
