@@ -68,28 +68,12 @@ p {
 }
 
 .deco {
-    color: #202632;
+    color: #322020;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 100;
     font-style: normal;
-}
-
-.deco a {
-    width: 100%;
-}
-
-.deco i {
-    width: 100%;
-}
-
-.texticon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: 15px;
-    width: 100%;
+    font-size: 18px;
 }
 
 .active {
