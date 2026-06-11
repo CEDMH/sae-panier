@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
         
-        <section id="index">
+        <section id="page-index">
 
             <h1>Bienvenue sur le site</h1>
             <p>Identifiez-vous avec votre numéro de carte de fidélité.</p>
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
 
-        <section id="index">
+        <section id="page-index">
             <p>Pas de compte ? <a href="./inscription.php">S'inscrire</a></p>
             <p>Numéro de carte oublié ? <a href="./numero-carte-oublié.php">Oublié</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>

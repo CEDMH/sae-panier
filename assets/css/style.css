@@ -67,6 +67,14 @@ p {
     background-color: #310000;
 }
 
+.deco {
+    color: #202632;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .active {
     background-color: #d6d1cb;
     color: #FCF6EE;
@@ -110,6 +118,7 @@ background-image: url(../image/bars-solid.png) !important;
     .active a{
         color: #000000;
     }
+    .case
 }
 
 /*INCLUSION DE LA TYPO OPENDYSLEXIC*/
