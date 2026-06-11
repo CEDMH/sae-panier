@@ -6,18 +6,20 @@ div {
     margin: 5%;
 }
 
+/*ACTIVATION POLICE OPENDYSLEXIC*/
 [dyslexie-text=dys]{
     #se-connecter{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
     #label{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
     #numero-carte{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
 }
 
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     #numerocarte{
         background-color: #FCF6EE !important;

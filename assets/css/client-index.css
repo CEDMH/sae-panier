@@ -18,27 +18,27 @@
     z-index: 100;
 }
 
-#les-paniers {
+.les-paniers {
     margin: 5%;
     border-radius: 0.5rem;
 }
 
-#image-panier {
+.image-panier {
     border-radius: 1.75rem;
     margin-bottom: 8%;
 }
 
-#paniers {
+.paniers {
     margin-bottom: 4%;
 }
 
-#paniers h2{
+.paniers h2{
     color: #202632;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
 
-#paniers a{
+.paniers a{
     text-decoration: none;
     color: #FCF6EE;
     font-family: "Martel", serif;
@@ -50,15 +50,23 @@
     border-radius: 0.75rem;
 }
 
+.message-fermeture {
+    text-align: center;
+    margin: 20px;
+    border-radius: 0.5rem;
+    margin-top: 130px;
+} 
+
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
-    #paniers a{
+    .paniers a{
         color: #202632;
         background-color: #FCF6EE;
     }
-    #paniers h2{
+    .paniers h2{
         color: #FCF6EE;
     }
-    #super-accueil{
+    .super-accueil{
         box-shadow: 0px 0px 0px;
         border-style: solid;
         border-width: 5px;
@@ -66,15 +74,16 @@
     }
 }
 
+/*ACTIVATION POLICE OPENDYSLEXIC*/
 [dyslexie-text=dys]{
-    #paniers a{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    .paniers a{
+        font-family: "OpenDyslexic", Arial, sans-serif;
     }
-    #paniers h2{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    .paniers h2{
+        font-family: "OpenDyslexic", Arial, sans-serif;
     }
     #super-accueil p{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: 'OpenDyslexic', Arial, sans-serif !important;
         font-size: 40px;
     }
     #super-accueil{

@@ -107,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
   </nav>
 
+    <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
     <br>
     <br>
     <br>
@@ -121,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if ($error): ?>
             <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
-<!-- // formulaire où les infos sont transmisent en method POST // -->
+            <!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">
                 <section>
                     <div>

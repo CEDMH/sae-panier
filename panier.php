@@ -1,3 +1,12 @@
+<?php
+require 'bootstrap.php';
+
+if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !empty($_SESSION['client_tel'])))) {
+    header('Location: index.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -23,6 +32,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/panier.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -43,9 +53,23 @@
             
           </summary>
             <ul dir="rtl">
-              <li id="case"><a href="client-index.php">Accueil</a></li>
-              <li id="case"><a href="panier.php">Panier</a></li>
-              <li id="case"><a href="catalogue.php">Catalogue</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
+
+              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 4) {
+              ?>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
+              <li class="case"><a href="panier.php" class="active">Panier</a></li>
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
               <li id="case"><a href="./back/deconnexion.php"><i class="fa-solid fa-power-off"></i>Déconnexion</a></li>
             </ul>
@@ -54,8 +78,70 @@
     </ul>
   </nav>
 
+  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
+  <br>
+  <br>
+  <br>
+
   <main>
-    
+    <?php
+
+      if (isset($_SESSION['client_carte'])) {
+          $num_carte = $_SESSION['client_carte'];
+          
+          try {
+
+              $reqClient = $pdo->prepare("SELECT nom, prenom FROM clients WHERE num_carte_fidelite = :carte");
+              $reqClient->execute([':carte' => $num_carte]);
+              $client = $reqClient->fetch();
+
+              if ($client) {
+
+                  $reqRes = $pdo->prepare("SELECT type_panier, date_commande, date_retrait 
+                                          FROM reservations 
+                                          WHERE nom = :nom AND prenom = :prenom 
+                                          ORDER BY date_commande DESC");
+                  $reqRes->execute([
+                      ':nom'    => $client['nom'],
+                      ':prenom' => $client['prenom']
+                  ]);
+
+                  $mes_reservations = $reqRes->fetchAll();
+
+                  echo "<br>
+                        <article id=titre-top>
+                          <h1>Mes réservations :</h1>
+                        </article>";
+                  if (count($mes_reservations) > 0) {
+                      foreach ($mes_reservations as $res) {
+                          echo "<div class=reservation-clients>";
+                          echo "<h2>Panier réservé : </h2><p>Panier pour " . htmlspecialchars($res['type_panier']) . "</p>";
+                          echo "<h2>Date de commande : </h2><p> " . htmlspecialchars($res['date_commande']) . "</p>";
+                          echo "<h2>Date de retrait prévue : </h2><p> " . htmlspecialchars($res['date_retrait']) . "</p>";
+                          echo "<div class=reserver>
+                                <form action=enlever_commande.php method=POST onsubmit=\"return confirm('Êtes-vous sûr de vouloir annuler cette réservation ?');\">
+                                <input type='hidden' name='type_panier' value='" . htmlspecialchars($res['type_panier']) . "'>
+                                <input type='hidden' name='date_commande' value='" . htmlspecialchars($res['date_commande']) . "'>
+                                <button type=submit>Retirer</button>
+                                </form>
+                                </div>";
+                          echo "</div>";
+                      }
+                  } else {
+                      echo "<p style=text-align:center>Vous n'avez pas encore fait de réservation.</p>";
+                  }
+              }
+          } catch (PDOException $e) {
+              echo "Erreur d'affichage : " . $e->getMessage();
+          }
+      }
+    ?>
+
+    <div class="boutons">
+      <button id="paiement">Payer</button>
+      <a href="client-index.php" id="retour">Retour à l'accueil</a>
+    </div>
+
   </main>
 
 </body>
