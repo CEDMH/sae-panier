@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <section id="inscription">
+        <section id="page-index">
 
             <h1>Créer un compte</h1>
             <p>Remplissez le formulaire pour obtenir votre carte de fidélité.</p>
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </section>
 
-        <section id="inscription">
+        <section id="page-index">
             <p>Déjà un compte ? <a href="./index.php">Se connecter</a></p>
         </section>
 

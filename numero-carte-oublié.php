@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <section id="oublie">
+        <section id="page-index">
 
             <h1>Numéro de carte oublié</h1>
             <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
 
-        <section id="oublie">
+        <section id="page-index">
             <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>
