@@ -1,7 +1,7 @@
 <?php
-session_start();
-
 require 'bootstrap.php';
+
+session_start();
 
 if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['date_retrait'])) {
 
@@ -36,7 +36,7 @@ if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['dat
                 ':date_retrait'  => $date_retrait
             ]);
 
-            header("Location: panier.php?status=success");
+            header("Location: reservation.php?status=success");
             exit();
 
         } else {

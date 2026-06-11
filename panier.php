@@ -32,6 +32,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/panier.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -57,7 +58,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 3) {
+              if ($aujourdhui == 2 || $aujourdhui == 4) {
               ?>
               <li class="case"><a href="reservation.php">Réservation</a></li>
               <?php
@@ -106,17 +107,27 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
                   $mes_reservations = $reqRes->fetchAll();
 
-                  echo "<h2>Mes réservations actives</h2>";
+                  echo "<br>
+                        <article id=titre-top>
+                          <h1>Mes réservations :</h1>
+                        </article>";
                   if (count($mes_reservations) > 0) {
                       foreach ($mes_reservations as $res) {
-                          echo "<div class='reservation-item' style='border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;'>";
-                          echo "<p>Panier réservé : " . htmlspecialchars($res['type_panier']) . "</p>";
-                          echo "<p>Date de commande : " . htmlspecialchars($res['date_commande']) . "</p>";
-                          echo "<p>Date de retrait prévue : " . htmlspecialchars($res['date_retrait']) . "</p>";
+                          echo "<div class=reservation-clients>";
+                          echo "<h2>Panier réservé : </h2><p>Panier pour " . htmlspecialchars($res['type_panier']) . "</p>";
+                          echo "<h2>Date de commande : </h2><p> " . htmlspecialchars($res['date_commande']) . "</p>";
+                          echo "<h2>Date de retrait prévue : </h2><p> " . htmlspecialchars($res['date_retrait']) . "</p>";
+                          echo "<div class=reserver>
+                                <form action=enlever_commande.php method=POST onsubmit=\"return confirm('Êtes-vous sûr de vouloir annuler cette réservation ?');\">
+                                <input type='hidden' name='type_panier' value='" . htmlspecialchars($res['type_panier']) . "'>
+                                <input type='hidden' name='date_commande' value='" . htmlspecialchars($res['date_commande']) . "'>
+                                <button type=submit>Retirer</button>
+                                </form>
+                                </div>";
                           echo "</div>";
                       }
                   } else {
-                      echo "<p>Vous n'avez pas encore effectué de réservation.</p>";
+                      echo "<p style=text-align:center>Vous n'avez pas encore fait de réservation.</p>";
                   }
               }
           } catch (PDOException $e) {
@@ -124,6 +135,11 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           }
       }
     ?>
+
+    <div class="boutons">
+      <button id="paiement">Payer</button>
+      <a href="client-index.php" id="retour">Retour à l'accueil</a>
+    </div>
 
   </main>
 

@@ -91,7 +91,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
       $aujourdhui = date('N');
 
-      if ($aujourdhui == 2 || $aujourdhui == 3) {
+      if ($aujourdhui == 2 || $aujourdhui == 4) {
     ?>
       
       <article style="margin-top:15px;">
@@ -117,10 +117,10 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           echo $descpanier['prix'];
           ?>€</p>
           <div class="reserver">
-            <form action="ajouter_commande.php" method="POST">
+            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
               <input type="hidden" name="type_panier" value="1p">
               <input type="hidden" name="date_retrait" value="2026-02-06"> 
-              <button type="submit">Réserver ce panier</button>
+              <button type="submit">Ajouter à mon panier</button>
             </form>
           </div>
         </div>
@@ -140,7 +140,13 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           $descpanier = $reponse->fetch();
           echo $descpanier['prix'];
           ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
+          <div class="reserver">
+            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
+              <input type="hidden" name="type_panier" value="2p">
+              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <button type="submit">Ajouter à mon panier</button>
+            </form>
+          </div>
         </div>
 
         <div class="paniers">
@@ -158,7 +164,13 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           $descpanier = $reponse->fetch();
           echo $descpanier['prix'];
           ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
+          <div class="reserver">
+            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
+              <input type="hidden" name="type_panier" value="3p">
+              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <button type="submit">Ajouter à mon panier</button>
+            </form>
+          </div>
         </div>
 
       </div>
