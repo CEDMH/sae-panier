@@ -1,8 +1,6 @@
 <?php
 require 'bootstrap.php';
 
-session_start();
-
 if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['date_retrait'])) {
 
     $num_carte = $_SESSION['client_carte'];
