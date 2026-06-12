@@ -3,7 +3,7 @@ require 'bootstrap.php';
 
 $error = '';
 $admin_identifiant = 'admin';
-$admin_mdp         = '123456789';
+$admin_mdp         = 'admin';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $identifiant = trim($_POST['identifiant'] ?? '');
@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin'] = true;
             header('Location: admin-index.php');
             exit;
+
         } else {
             $error = 'Identifiant ou mot de passe incorrect.';
         }
@@ -85,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <section id="page-index">
+        <section id="admin-login">
 
             <h1>Connexion Administrateur</h1>
             <p>Accès réservé aux administrateurs.</p>
@@ -112,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </section>
 
-        <section id="page-index">
+        <section id="admin-login">
             <p>Vous êtes un client ? <a href="./index.php">Retour à l'accueil</a></p>
         </section>
 
