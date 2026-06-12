@@ -67,10 +67,6 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
-<<<<<<< HEAD
-=======
-              <li class="case"><a href="./back/deconnexion.php"><i class="fa-solid fa-power-off"></i>Déconnexion</a></li>
->>>>>>> config_connexion
             </ul>
         </details>
       </li>
