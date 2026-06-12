@@ -13,7 +13,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>GESTION CARTES</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -32,7 +32,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/client-index.css" rel="stylesheet">
+    <link href="./assets/css/admin-index.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -47,30 +47,12 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             
           </summary>
             <ul dir="ltr">
-              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
-
-              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-              <?php
-              $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 4) {
-              ?>
-              <li class="case"><a href="reservation.php">Réservation</a></li>
-              <?php
-              } else {
-              ?>
-              <li class="case-indisponible"><a href="#">Réservation</a></li>
-              <?php
-              }
-              ?>
-
-              <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="admin-index.php">Accueil</a></li>
+              <li class="case"><a href="admin-reservations.php" class="active">Paniers</a></li>
+              <li class="case"><a href="admin-cartes.php">Cartes</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
-<<<<<<< HEAD
-=======
-              <li class="case"><a href="./back/deconnexion.php"><i class="fa-solid fa-power-off"></i>Déconnexion</a></li>
->>>>>>> config_connexion
             </ul>
         </details>
       </li>
@@ -87,49 +69,10 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
   <br>
   <br>
   <br>
+  <br>
 
   <main>
 
-    <div id="super-accueil">
-      <p>L'épicerie Le Coin Des Saveurs vous souhaite le bonjour !</p>
-    </div>
-
-    <article>
-      <h1>Bienvenue sur notre appli de réservation !</h1>
-      <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver.</p>
-    </article>
-
-    <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-    <?php
-
-      $aujourdhui = date('N');
-
-      if ($aujourdhui == 2 || $aujourdhui == 4) {
-    ?>
-
-    <article class="les-paniers">
-      <div class="paniers">
-        <h2>Réservez votre panier !</h2>
-        <img src="./assets/image/panier.jpg" class="image-panier">
-        <a href="reservation.php">Accéder aux reservations</a>
-      </div>
-    </article>
-
-    <?php
-    } else {
-    ?>
-
-    <article class="message-fermeture">
-      <div class="paniers">
-        <h2>Réservations fermées</h2>
-        <p>Revenez bientôt pour réserver nos nouveaux paniers !</p>
-      </div>
-    </article>
-
-    <?php
-    }
-    ?>
-    
   </main>
 
 </body>

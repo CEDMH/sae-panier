@@ -41,27 +41,21 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
   <!-- NAV/HEADER -->
   <nav class="header">
-    <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
-    </ul>
-    <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
-    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
           <summary>
             
           </summary>
-            <ul dir="rtl">
-              <li class="case"><a href="client-index.php">Accueil</a></li>
+            <ul dir="ltr">
+              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
 
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 3) {
+              if ($aujourdhui == 2 || $aujourdhui == 4) {
               ?>
-              <li class="case"><a href="reservation.php" class="active">Réservation</a></li>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
               <?php
               } else {
               ?>
@@ -71,10 +65,18 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               ?>
 
               <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
   </nav>
 
@@ -119,7 +121,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           <div class="reserver">
             <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
               <input type="hidden" name="type_panier" value="1p">
-              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <input type="hidden" name="date_retrait" value="2026-07-11">
               <button type="submit">Ajouter à mon panier</button>
             </form>
           </div>
@@ -143,7 +145,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           <div class="reserver">
             <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
               <input type="hidden" name="type_panier" value="2p">
-              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <input type="hidden" name="date_retrait" value="2026-07-11"> 
               <button type="submit">Ajouter à mon panier</button>
             </form>
           </div>
@@ -167,7 +169,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           <div class="reserver">
             <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
               <input type="hidden" name="type_panier" value="3p">
-              <input type="hidden" name="date_retrait" value="2026-02-06"> 
+              <input type="hidden" name="date_retrait" value="2026-07-11"> 
               <button type="submit">Ajouter à mon panier</button>
             </form>
           </div>

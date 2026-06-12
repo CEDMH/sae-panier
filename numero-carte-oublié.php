@@ -88,23 +88,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="fond-d-ecran">
 
     <nav class="header">
-    <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
-    </ul>
-    <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
-    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
           <summary>
             
           </summary>
-            <ul dir="rtl">
-                <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+            <ul dir="ltr">
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
   </nav>
 
@@ -114,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <section id="oublie">
+        <section id="page-index">
 
             <h1>Numéro de carte oublié</h1>
             <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
@@ -140,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
 
-        <section id="oublie">
+        <section id="page-index">
             <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
         </section>

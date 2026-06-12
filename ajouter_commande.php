@@ -1,8 +1,6 @@
 <?php
 require 'bootstrap.php';
 
-session_start();
-
 if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['date_retrait'])) {
 
     $num_carte = $_SESSION['client_carte'];
@@ -23,10 +21,7 @@ if (isset($_SESSION['client_carte']) && isset($_POST['type_panier'], $_POST['dat
             $date_commande = date('Y-m-d H:i:s');
             $date_panier = $date_retrait;
 
-            $sql = "INSERT INTO reservations (nom, prenom, type_panier, date_panier, date_commande, date_retrait) 
-                    VALUES (:nom, :prenom, :type_panier, :date_panier, :date_commande, :date_retrait)";
-
-            $envoi_de_la_cmd = $pdo->prepare($sql);
+            $envoi_de_la_cmd = $pdo->prepare("INSERT INTO reservations (nom, prenom, type_panier, date_panier, date_commande, date_retrait) VALUES (:nom, :prenom, :type_panier, :date_panier, :date_commande, :date_retrait)");
             $envoi_de_la_cmd->execute([
                 ':nom'           => $nom,
                 ':prenom'        => $prenom,

@@ -1,0 +1,101 @@
+<?php
+require 'bootstrap.php';
+
+if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !empty($_SESSION['client_tel'])))) {
+    header('Location: index.php');
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCUEIL ADMIN</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
+
+    <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
+
+    <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/brands.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/regular.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/solid.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/admin-index.css" rel="stylesheet">
+
+    <script src="assets/javascript/dm-lm.js"></script>
+</head>
+
+<body class="fond-d-ecran">
+
+  <nav class="header">
+    <ul id="menu-burger">
+      <li>
+        <details class="dropdown">
+          <summary>
+            
+          </summary>
+            <ul dir="ltr">
+              <li class="case"><a href="admin-index.php" class="active">Accueil</a></li>
+              <li class="case"><a href="admin-reservations.php">Paniers</a></li>
+              <li class="case"><a href="admin-cartes.php">Cartes</a></li>
+              <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+            </ul>
+        </details>
+      </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
+    </ul>
+  </nav>
+
+  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <main>
+
+    <article>
+      <h1>Bienvenue sur votre page Admin !</h1>
+      <p>Vous êtes sur la page d'administration. Cette page vous permet de gérer les paniers et de gérer les cartes de vos clients.</p>
+    </article>
+
+    <article class="lien-gestion">
+      <div class="gestion">
+        <h2>Pour gérer les paniers :</h2>
+        <p>Ici vous pourrez ajouter dans votre base de donnée des paniers que vous avez composé et qui seront affichés à vos clients pour qu'ils puissent réserver le mardi et le mercredi.</p>
+        <a href="admin-reservations.php">Accéder à la page de gestion des paniers</a>
+      </div>
+    </article>
+
+    <article class="lien-gestion">
+      <div class="gestion">
+        <h2>Pour gérer les cartes :</h2>
+        <p>Ici vous pourrez gérer les cartes de vos clients qui leur permettent de réserver vos paniers en se connectant, s'ils n'honnorent pas leurs réservations ou n'ont pas reservé de panier depuis plus de 3 mois, vous pourrez les bloquer sur cette page également.</p>
+        <a href="admin-cartes.php">Accéder à la page de gestion des cartes</a>
+      </div>
+    </article>
+
+  </main>
+
+</body>
+
+</html>
