@@ -13,7 +13,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BACK-OFFICE</title>
+    <title>ACCUEIL ADMIN</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -32,7 +32,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/client-index.css" rel="stylesheet">
+    <link href="./assets/css/admin-index.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -78,16 +78,16 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
       <p>Vous êtes sur la page d'administration. Cette page vous permet de gérer les paniers et de gérer les cartes de vos clients.</p>
     </article>
 
-    <article class="les-paniers">
-      <div class="paniers">
+    <article class="lien-gestion">
+      <div class="gestion">
         <h2>Pour gérer les paniers :</h2>
         <p>Ici vous pourrez ajouter dans votre base de donnée des paniers que vous avez composé et qui seront affichés à vos clients pour qu'ils puissent réserver le mardi et le mercredi.</p>
         <a href="admin-reservations.php">Accéder à la page de gestion des paniers</a>
       </div>
     </article>
 
-    <article class="les-paniers">
-      <div class="paniers">
+    <article class="lien-gestion">
+      <div class="gestion">
         <h2>Pour gérer les cartes :</h2>
         <p>Ici vous pourrez gérer les cartes de vos clients qui leur permettent de réserver vos paniers en se connectant, s'ils n'honnorent pas leurs réservations ou n'ont pas reservé de panier depuis plus de 3 mois, vous pourrez les bloquer sur cette page également.</p>
         <a href="admin-cartes.php">Accéder à la page de gestion des cartes</a>
