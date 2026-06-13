@@ -19,14 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!empty($type) && !empty($description) && !empty($date_retrait)) {
             $req = $pdo->prepare("INSERT INTO paniers (type, description, prix, date_retrait) VALUES (:type, :desc, :prix, :date_retrait)");
-            $req->execute([
-                ':type'         => $type,
-                ':desc'         => $description,
-                ':prix'         => $prix,
-                ':date_retrait' => $date_retrait
-            ]);
+            $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait]);
             $message = "Le nouveau panier '$type' avec retrait le $date_retrait a bien été ajouté !";
         }
+
     }
 }
 
@@ -99,11 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <?php if (!empty($message)): ?>
+        <?php if (!empty($message)){ ?>
             <article style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 10px; font-weight: bold;">
                 <?php echo $message; ?>
             </article>
-        <?php endif; ?>
+        <?php } ?>
 
         <article style="border: 2px dashed #1141a1; padding: 20px; background-color: #f9f9f9;">
             <h2 style="color: #1141a1; margin-top: 0;">Ajouter un nouveau panier !</h2>

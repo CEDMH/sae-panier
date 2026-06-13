@@ -131,7 +131,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           <h2>Panier 2 personnes</h2>
           <img src="./assets/image/panier-l.jpg" class="image-panier">
           <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 6';
+          $sql = 'SELECT description FROM paniers WHERE id = 9';
           $reponse = $pdo->query($sql); 
           $descpanier = $reponse->fetch();
           echo $descpanier['description'];

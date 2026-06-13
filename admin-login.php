@@ -91,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Connexion Administrateur</h1>
             <p>Accès réservé aux administrateurs.</p>
 
-            <?php if ($error): ?>
+            <?php if ($error){ ?>
                 <p><?php echo htmlspecialchars($error) ?></p>
-            <?php endif; ?>
+            <?php } ?>
 
             <form action="" method="post">
                 <section>

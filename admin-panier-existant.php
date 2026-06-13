@@ -17,16 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $description = trim($_POST['description']);
         $prix = $_POST['prix'];
         $date_retrait = $_POST['date_retrait'];
-
         $req = $pdo->prepare("UPDATE paniers SET type = :type, description = :desc, prix = :prix, date_retrait = :date_retrait WHERE id = :id");
-        $req->execute([
-            ':type'         => $type,
-            ':desc'         => $description,
-            ':prix'         => $prix,
-            ':date_retrait' => $date_retrait,
-            ':id'           => $id
-        ]);
-        $message = "Le panier a bien été mis à jour !";
+        $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait,':id' => $id]);
+        $message = "Le panier est mis à jour !";
     }
 
     // SUPPRIMER UN PANIER
@@ -110,11 +103,11 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
 
     <main>
 
-        <?php if (!empty($message)): ?>
+        <?php if (!empty($message)){ ?>
             <article style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 10px; font-weight: bold;">
                 <?php echo $message; ?>
             </article>
-        <?php endif; ?>
+        <?php } ?>
 
         <div><a href="./admin-panier.php" class="lien-va">Créer un nouveau panier</a></div>
 
@@ -122,7 +115,7 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
         
         <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
 
-            <?php foreach ($paniers as $panier): ?>
+            <?php foreach ($paniers as $panier){ ?>
                 <article style="border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
                     
                     <form action="" method="POST" style="margin-bottom: 10px;">
@@ -157,7 +150,7 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
                     </form>
 
                 </article>
-            <?php endforeach; ?>
+            <?php } ?>
 
         </section>
 
