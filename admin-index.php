@@ -1,8 +1,8 @@
 <?php
 require 'bootstrap.php';
 
-if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !empty($_SESSION['client_tel'])))) {
-    header('Location: index.php');
+if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+    header('Location: admin-login.php');
     exit;
 }
 ?>
