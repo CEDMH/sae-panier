@@ -48,7 +48,8 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
           </summary>
             <ul dir="ltr">
               <li class="case"><a href="admin-index.php">Accueil</a></li>
-              <li class="case"><a href="admin-reservations.php">Paniers</a></li>
+              <li class="case"><a href="admin-panier.php">Paniers</a></li>
+              <li class="case"><a href="admin-reservations.php">Réservations</a></li>
               <li class="case"><a href="admin-cartes.php" class="active">Cartes</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->

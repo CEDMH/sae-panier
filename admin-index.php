@@ -48,7 +48,8 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
           </summary>
             <ul dir="ltr">
               <li class="case"><a href="admin-index.php" class="active">Accueil</a></li>
-              <li class="case"><a href="admin-reservations.php">Paniers</a></li>
+              <li class="case"><a href="admin-panier.php">Paniers</a></li>
+              <li class="case"><a href="admin-reservations.php">Réservations</a></li>
               <li class="case"><a href="admin-cartes.php">Cartes</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
@@ -82,7 +83,7 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
       <div class="gestion">
         <h2>Pour gérer les paniers :</h2>
         <p>Ici vous pourrez ajouter dans votre base de donnée des paniers que vous avez composé et qui seront affichés à vos clients pour qu'ils puissent réserver le mardi et le mercredi.</p>
-        <a href="admin-reservations.php">Accéder à la page de gestion des paniers</a>
+        <a href="admin-panier.php">Accéder à la page de gestion des paniers</a>
       </div>
     </article>
 
