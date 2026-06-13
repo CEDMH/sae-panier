@@ -1,0 +1,137 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2%;
+}
+
+main section {
+    width: 100%;
+    background-color: rgb(214, 214, 214);
+    margin-bottom: 4%;
+    padding: 2%;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+main section p {
+    color: #202632;
+    font-family: "Sansita", sans-serif;
+    margin: 8%;
+}
+
+main section div input {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+main section button {
+    width: 100%;
+    margin-top: 8px;
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #202632;
+    padding: 3%;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+}
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
+[data-theme=dark]{
+    .paniers a{
+        color: #202632;
+        background-color: #FCF6EE;
+    }
+    .paniers h2{
+        color: #FCF6EE;
+    }
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
+[dyslexie-text=dys]{
+    .paniers a{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .paniers h2{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GRILLE DE CARTES
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARTE CLIENT */
+/* main section {
+    background-color: var(--card-background-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* TITRE DE LA CARTE */
+/* main section p {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* CHAMPS DE MODIFICATION */
+/* main section input {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* BOUTONS */
+/* main section button {
+    width: 100%;
+    margin-top: 8px;
+} */ */ */ */ */

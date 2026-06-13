@@ -75,25 +75,11 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
   <main>
 
     <article>
-      <h1>Bienvenue sur votre page Admin !</h1>
-      <p>Vous êtes sur la page d'administration. Cette page vous permet de gérer les paniers et de gérer les cartes de vos clients.</p>
+      <h1>Statistiques</h1>
+      <p>Vous pouvez voir les statistiques des ventes de paniers.</p>
     </article>
 
-    <article class="lien-gestion">
-      <div class="gestion">
-        <h2>Pour gérer les paniers :</h2>
-        <p>Ici vous pourrez ajouter dans votre base de donnée des paniers que vous avez composé et qui seront affichés à vos clients pour qu'ils puissent réserver le mardi et le mercredi.</p>
-        <a href="admin-reservations.php">Accéder à la page de gestion des paniers</a>
-      </div>
-    </article>
 
-    <article class="lien-gestion">
-      <div class="gestion">
-        <h2>Pour gérer les cartes :</h2>
-        <p>Ici vous pourrez gérer les cartes de vos clients qui leur permettent de réserver vos paniers en se connectant, s'ils n'honnorent pas leurs réservations ou n'ont pas reservé de panier depuis plus de 3 mois, vous pourrez les bloquer sur cette page également.</p>
-        <a href="admin-cartes.php">Accéder à la page de gestion des cartes</a>
-      </div>
-    </article>
 
   </main>
 

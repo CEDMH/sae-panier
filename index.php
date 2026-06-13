@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="" method="post">
                 <section>
                     <div>
-                        <label for="username">Numéro de carte de fidélité :</label>
+                        <label for="numerocarte">Numéro de carte de fidélité :</label>
                         <input type="text" id="numerocarte" name="numerocarte" required>
                     </div>
                     <div>
