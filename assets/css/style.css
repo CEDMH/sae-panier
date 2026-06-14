@@ -16,13 +16,13 @@ html{
 }
 
 h1 {
-    color: #202632;
+    color: #194961;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
 
 p {
-    color: #202632;
+    color: #194961;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -43,7 +43,7 @@ p {
 }
 
 .case {
-    color: #202632;
+    color: #194961;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -51,11 +51,11 @@ p {
 }
 
 .case :hover {
-    background-color: #202632;
+    background-color: #194961;
 }
 
 .case-indisponible {
-    color: #202632;
+    color: #194961;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -64,11 +64,11 @@ p {
 
 .case-indisponible :hover {
     color: red;
-    background-color: #310000;
+    background-color: #194961;
 }
 
 .deco {
-    color: #322020;
+    color: #194961;
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
     font-weight: 100;
@@ -82,13 +82,13 @@ p {
 }
 
 summary::after{
-background-image: url(../image/bars-solid.png) !important;
+background-image: url(../image/bars-solid.webp) !important;
 }
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     summary::after{
-        background-image: url(../image/bars-solid-light.png) !important;
+        background-image: url(../image/bars-solid-light.webp) !important;
     };
     .header{
         background-color: #202632 !important;
