@@ -4,6 +4,14 @@ div {
 
 #page-index {
     margin: 5%;
+    margin-bottom: 15%;
+    border-style: solid;
+    border-color: #dbd5ce;
+    border-width: 4px;
+    padding: 9%;
+    border-radius: 1.75rem;
+    background-color: #FCF6EE;
+    box-shadow: -3px 3px 15px;
 }
 
 /*ACTIVATION POLICE OPENDYSLEXIC*/

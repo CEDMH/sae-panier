@@ -17,16 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $description = trim($_POST['description']);
         $prix = $_POST['prix'];
         $date_retrait = $_POST['date_retrait'];
-
         $req = $pdo->prepare("UPDATE paniers SET type = :type, description = :desc, prix = :prix, date_retrait = :date_retrait WHERE id = :id");
-        $req->execute([
-            ':type'         => $type,
-            ':desc'         => $description,
-            ':prix'         => $prix,
-            ':date_retrait' => $date_retrait,
-            ':id'           => $id
-        ]);
-        $message = "Le panier a bien été mis à jour !";
+        $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait,':id' => $id]);
+        $message = "Le panier est mis à jour !";
     }
 
     // SUPPRIMER UN PANIER
@@ -49,7 +42,7 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANIER</title>
+    <title>CREATION PANIER</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -68,7 +61,7 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/admin-index.css" rel="stylesheet">
+    <link href="./assets/css/admin-panier.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -110,22 +103,23 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
 
     <main>
 
-        <?php if (!empty($message)): ?>
-            <article style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 10px; font-weight: bold;">
+        <?php if (!empty($message)){ ?>
+            <article class="message">
                 <?php echo $message; ?>
             </article>
-        <?php endif; ?>
-
-        <div><a href="./admin-panier.php" class="lien-va">Créer un nouveau panier</a></div>
-
-        <h2>Paniers existants (Modifier ou Supprimer)</h2>
+        <?php } ?>
         
-        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        <article>
+        <h1>Paniers existants :</h1>
+        <p>Ici vous pouvez modifier vos paniers qui sont actuellement proposés à vos clients ! Si vous voulez créer un nouveau panier, vous pouvez cliquer sur le bouton en bas de page "Créer un nouveau panier".</p>
+        </article>
 
-            <?php foreach ($paniers as $panier): ?>
-                <article style="border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+        <section class="section-page-paniers">
+
+            <?php foreach ($paniers as $panier){ ?>
+                <article class="paniers">
                     
-                    <form action="" method="POST" style="margin-bottom: 10px;">
+                    <form action="" method="POST">
                         <input type="hidden" name="id_panier" value="<?php echo $panier['id']; ?>">
                         <input type="hidden" name="action_type" value="modifier">
                         
@@ -147,19 +141,21 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
                             </label>
                         </div>
                         
-                        <button type="submit" style="background-color: #1141a1; border: none;">Mettre à jour</button>
+                        <button type="submit" class="bouton-mj">Mettre à jour</button>
                     </form>
 
-                    <form action="" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer définitivement ce format de panier ?');" style="margin: 0;">
+                    <form action="" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer définitivement ce format de panier ?');">
                         <input type="hidden" name="id_panier" value="<?php echo $panier['id']; ?>">
                         <input type="hidden" name="action_type" value="supprimer">
-                        <button type="submit" style="background-color: #ff4d4d; border: none; width: 100%;">Supprimer ce panier</button>
+                        <button type="submit" class="bouton-supr">Supprimer ce panier</button>
                     </form>
 
                 </article>
-            <?php endforeach; ?>
-
+            <?php } ?>
+                
         </section>
+
+        <div class="bouton-va"><a href="./admin-panier.php" class="lien-va">Créer un nouveau panier</a></div>
 
     </main>
 </body>

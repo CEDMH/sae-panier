@@ -119,10 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <h1>Bienvenue sur le site</h1>
             <p>Identifiez-vous avec votre numéro de carte de fidélité.</p>
-<!-- // condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici // -->
-            <?php if ($error): ?>
+            <!-- // condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici // -->
+            <?php if ($error){ ?>
             <p><?php echo htmlspecialchars($error) ?></p>
-            <?php endif; ?>
+            <?php } ?>
             <!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">
                 <section>
@@ -135,12 +135,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </section>
             </form>
-        </section>
-
-        <section id="page-index">
+        
             <p>Pas de compte ? <a href="./inscription.php">S'inscrire</a></p>
             <p>Numéro de carte oublié ? <a href="./numero-carte-oublié.php">Oublié</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
+
         </section>
 
     </main>

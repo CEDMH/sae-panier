@@ -19,14 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!empty($type) && !empty($description) && !empty($date_retrait)) {
             $req = $pdo->prepare("INSERT INTO paniers (type, description, prix, date_retrait) VALUES (:type, :desc, :prix, :date_retrait)");
-            $req->execute([
-                ':type'         => $type,
-                ':desc'         => $description,
-                ':prix'         => $prix,
-                ':date_retrait' => $date_retrait
-            ]);
+            $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait]);
             $message = "Le nouveau panier '$type' avec retrait le $date_retrait a bien été ajouté !";
         }
+
     }
 }
 
@@ -38,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANIER</title>
+    <title>GESTION PANIER</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -57,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/admin-index.css" rel="stylesheet">
+    <link href="./assets/css/admin-panier.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
@@ -99,14 +95,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <?php if (!empty($message)): ?>
-            <article style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 10px; font-weight: bold;">
+        <article>
+        <h1>Ajout des paniers :</h1>
+        <p>Ici vous pouvez créer de nouveaux paniers qui seront proposés à vos clients pour qu'ils puissent les réserver ! Si vous voulez les supprimer ou les modifier, vous pouvez cliquer sur le bouton en bas de page "Voir les paniers mis en ligne".</p>
+        </article>
+
+        <?php if (!empty($message)){ ?>
+            <article class="message">
                 <?php echo $message; ?>
             </article>
-        <?php endif; ?>
+        <?php } ?>
 
-        <article style="border: 2px dashed #1141a1; padding: 20px; background-color: #f9f9f9;">
-            <h2 style="color: #1141a1; margin-top: 0;">Ajouter un nouveau panier !</h2>
+        <article class="ajout-panier">
+            <h2>Ajouter un nouveau panier !</h2>
             
             <form action="" method="POST">
                 <input type="hidden" name="action_type" value="ajouter">
@@ -129,13 +130,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <textarea name="nouvelle_description" rows="3" placeholder="Ex: 1kg de pommes de terre, 500g de carottes, 1 salade..." required></textarea>
                 </label>
 
-                <button type="submit" style="background-color: #25bd11; border: none; font-weight: bold;">
+                <button type="submit" class="bouton-ml">
                     Créer et mettre en ligne ce panier
                 </button>
             </form>
         </article>
         
-        <div><a href="./admin-panier-existant.php" class="lien-va">Voir les paniers mis en ligne</a></div>
+        <div class="bouton-va"><a href="./admin-panier-existant.php" class="lien-va">Voir les paniers mis en ligne</a></div>
 
     </main>
 </body>

@@ -23,7 +23,7 @@ $reservations = $pdo->query($sql)->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESERVATION</title>
+    <title>GESTION RESERVATION</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -91,7 +91,7 @@ $reservations = $pdo->query($sql)->fetchAll();
         <p>Ici vous pouvez consulter toutes les réservations effectuées par vos clients et cocher s'ils ont récupéré ou non leur commandes.</p>
       </article>
         <!-- TABLEAU LISTE LES RESERV ET MR GRENIER PEUT COCHER RETIRE OU PAS GRACE A AU SCRIPT JS -->
-        <table role="grid">
+        <table role="grid" class="tableau">
             <thead>
                 <tr>
                     <th>Nom / Prénom</th>

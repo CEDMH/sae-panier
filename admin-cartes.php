@@ -119,9 +119,9 @@ $clients = $requete3->fetchAll();
       <p>Vous pouvez débloquer, modifier ou supprimer les cartes de vos clients.</p>
     </article>
 <!-- Affichage des message de succées -->
-    <?php if ($message): ?>
+    <?php if ($message){ ?>
         <p><?php echo htmlspecialchars($message) ?></p>
-    <?php endif; ?>
+    <?php } ?>
 
 <!-- On parcour $clients et on assigne la valeur de l'élément courant dans $client  -->
     <?php foreach ($clients as $client): ?>

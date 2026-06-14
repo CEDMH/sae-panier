@@ -5,6 +5,9 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     header('Location: index.php');
     exit;
 }
+
+$requete = $pdo->query("SELECT type, description, prix, date_retrait FROM paniers");
+$liste_paniers = $requete->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -94,88 +97,34 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
       $aujourdhui = date('N');
 
-      if ($aujourdhui == 2 || $aujourdhui == 6) {
+      if ($aujourdhui == 2 || $aujourdhui == 7) {
     ?>
       
-      <article style="margin-top:15px;">
-        <h1 style="text-align:center;">Les super paniers à réserver :</h1>
-        <p style="text-align:center;">Voici nos petits bijoux de cette semaine...</p>
+      <article>
+        <h1>Les super paniers à réserver :</h1>
+        <p>Voici nos petits bijoux de cette semaine...</p>
       </article>
       
       <div class="les-paniers">
-
-        <div class="paniers">
-          <h2>Panier 1 personne</h2>
-          <img src="./assets/image/panier-m.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 1';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 1';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver">
-            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
-              <input type="hidden" name="type_panier" value="1p">
-              <input type="hidden" name="date_retrait" value="2026-07-11">
-              <button type="submit">Ajouter à mon panier</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="paniers">
-          <h2>Panier 2 personnes</h2>
-          <img src="./assets/image/panier-l.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 6';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 6';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver">
-            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
-              <input type="hidden" name="type_panier" value="2p">
-              <input type="hidden" name="date_retrait" value="2026-07-11"> 
-              <button type="submit">Ajouter à mon panier</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="paniers">
-          <h2>Panier 3-4 personnes</h2>
-          <img src="./assets/image/panier-xl.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 3';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 3';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver">
-            <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Vous-allez ajouter cette réservation à votre panier, cliquez ok pour continuer.');">
-              <input type="hidden" name="type_panier" value="3p">
-              <input type="hidden" name="date_retrait" value="2026-07-11"> 
-              <button type="submit">Ajouter à mon panier</button>
-            </form>
-          </div>
-        </div>
-
+        <?php
+        if (count($liste_paniers) > 0) {
+            foreach ($liste_paniers as $panier) { ?>
+              <div class="paniers">
+                <h2>Format du panier: <?php echo htmlspecialchars($panier['type']);?></h2>
+                <img src="./assets/image/panier.jpg" class="image-panier">
+                <p><?php echo htmlspecialchars($panier['description']); ?></p>
+                <p class="price"><?php echo htmlspecialchars((string)$panier['prix']);?>€</p>
+                <div class="reserver">
+                  <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Voulez-vous ajouter cette réservation à votre panier ?');">
+                    <input type="hidden" name="type_panier" value="<?php echo htmlspecialchars($panier['type']); ?>">
+                    <input type="hidden" name="date_retrait" value="<?php echo htmlspecialchars($panier['date_retrait']); ?>"> 
+                    <button type="submit">Ajouter à mon panier</button>
+                  </form>
+                </div>
+              </div>
+      <?php } } else { ?>
+          <p>Aucun panier n'est disponible à la réservation pour le moment.</p>
+      <?php } ?>
       </div>
 
     <?php

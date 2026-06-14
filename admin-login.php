@@ -59,23 +59,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="fond-d-ecran">
 
    <nav class="header">
-    <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
-    </ul>
-    <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
-    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
           <summary>
             
           </summary>
-            <ul dir="rtl">
-                <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+            <ul dir="ltr">
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
   </nav>
 
@@ -86,14 +87,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <main>
 
-        <section id="admin-login">
+        <section id="page-index">
 
             <h1>Connexion Administrateur</h1>
             <p>Accès réservé aux administrateurs.</p>
 
-            <?php if ($error): ?>
+            <?php if ($error){ ?>
                 <p><?php echo htmlspecialchars($error) ?></p>
-            <?php endif; ?>
+            <?php } ?>
 
             <form action="" method="post">
                 <section>
@@ -111,10 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </section>
             </form>
 
-        </section>
-
-        <section id="admin-login">
             <p>Vous êtes un client ? <a href="./index.php">Retour à l'accueil</a></p>
+
         </section>
 
     </main>
