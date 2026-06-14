@@ -38,6 +38,12 @@
     z-index: 100;
 }
 
+.a-propos {
+    box-shadow: 0px 3px 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .les-paniers {
     margin: 5%;
     border-radius: 0.5rem;
