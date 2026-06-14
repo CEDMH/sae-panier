@@ -41,8 +41,6 @@ foreach ($paniers_mois as $mois) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -112,22 +110,22 @@ foreach ($paniers_mois as $mois) {
 
   <main>
 
-    <article>
+    <article class="statistiques">
       <h1>Statistiques</h1>
       <p>Vous pouvez voir les statistiques des ventes de paniers.</p>
     </article>
 <!-- On affiche la moyenne qui est $moyenne -->
-    <section>
+    <section class="statistiques">
       <h2>Moyenne de paniers retirés par mois</h2>
       <p>La moyenne est de : <strong><?php echo $moyenne ?></strong></p>
-    </section>
+    </section class="statistiques">
 <!-- On affiche le mois le plus retable qui est $mois_max avec le nombre de panier ($max) -->      
-    <section>
+    <section class="statistiques">
       <h2>Mois le plus rentable</h2>
       <p>Le mois le plus rentable est : <strong><?php echo htmlspecialchars($mois_max) ?></strong> avec <strong><?php echo $max ?></strong> paniers</p>
     </section>
 <!-- On parcourt le tableau $panier_mois pour en afficher la date et le nombre de paniers -->
-    <section>
+    <section class="statistiques">
       <h2>Nombre de paniers par mois</h2>
       <?php foreach ($paniers_mois as $mois): ?>
         <p><?php echo htmlspecialchars($mois['mois_panier']) ?> : <strong><?php echo $mois['nombre'] ?></strong> paniers</p>
