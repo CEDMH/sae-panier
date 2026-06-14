@@ -47,12 +47,12 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             
           </summary>
             <ul dir="ltr">
-              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
 
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 6) {
+              if ($aujourdhui == 2 || $aujourdhui == 3) {
               ?>
               <li class="case"><a href="reservation.php">Réservation</a></li>
               <?php
@@ -63,7 +63,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               }
               ?>
 
-              <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="panier.php" class="active">Panier</a></li>
               <li class="case"><a href="a-propos.php">À propos</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
@@ -81,6 +81,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
   </nav>
 
   <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
+  <br>
   <br>
   <br>
   <br>
@@ -110,9 +111,9 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
                   $mes_reservations = $reqRes->fetchAll();
 
-                  echo "<br>
-                        <article id=titre-top>
+                  echo "<article>
                           <h1>Mes réservations :</h1>
+                          <p>Ici vous pourrez retrouver toutes vos réservations</p>
                         </article>";
                   if (count($mes_reservations) > 0) {
                       foreach ($mes_reservations as $res) {
@@ -124,13 +125,13 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
                                 <form action=enlever_commande.php method=POST onsubmit=\"return confirm('Êtes-vous sûr de vouloir annuler cette réservation ?');\">
                                 <input type='hidden' name='type_panier' value='" . htmlspecialchars($res['type_panier']) . "'>
                                 <input type='hidden' name='date_commande' value='" . htmlspecialchars($res['date_commande']) . "'>
-                                <button type=submit>Retirer</button>
+                                <button type=submit class=bouton-ann>Annuler</button>
                                 </form>
                                 </div>";
                           echo "</div>";
                       }
                   } else {
-                      echo "<p style=text-align:center>Vous n'avez pas encore fait de réservation.</p>";
+                      echo "<p class=pas-reserv>Vous n'avez pas encore fait de réservation.</p>";
                   }
               }
           } catch (PDOException $e) {

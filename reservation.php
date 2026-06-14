@@ -51,14 +51,14 @@ $liste_paniers = $requete->fetchAll();
             
           </summary>
             <ul dir="ltr">
-              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
 
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 6) {
+              if ($aujourdhui == 2 || $aujourdhui == 3) {
               ?>
-              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <li class="case"><a href="reservation.php" class="active">Réservation</a></li>
               <?php
               } else {
               ?>
@@ -97,7 +97,7 @@ $liste_paniers = $requete->fetchAll();
 
       $aujourdhui = date('N');
 
-      if ($aujourdhui == 2 || $aujourdhui == 7) {
+      if ($aujourdhui == 2 || $aujourdhui == 3) {
     ?>
       
       <article>
@@ -118,7 +118,7 @@ $liste_paniers = $requete->fetchAll();
                   <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Voulez-vous ajouter cette réservation à votre panier ?');">
                     <input type="hidden" name="type_panier" value="<?php echo htmlspecialchars($panier['type']); ?>">
                     <input type="hidden" name="date_retrait" value="<?php echo htmlspecialchars($panier['date_retrait']); ?>"> 
-                    <button type="submit">Ajouter à mon panier</button>
+                    <button type="submit" class="ajt-panier">Ajouter à mon panier</button>
                   </form>
                 </div>
               </div>
@@ -132,10 +132,8 @@ $liste_paniers = $requete->fetchAll();
     ?>
 
     <article class="message-fermeture">
-      <div class="paniers">
-        <h2>Réservations fermées</h2>
+        <h1>Réservations fermées</h1>
         <p>Petit malin ! Tu pensais y arriver en passant par là ? Bien joué mais raté ! Reviens bientôt pour réserver nos nouveaux paniers !</p>
-      </div>
     </article>
 
     <?php
