@@ -78,7 +78,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
     <article>
       <h1>Le Coin des Saveurs</h1>
-      <p>Sur la page <strong><a href="./reservation.php">"Réservation"</a></strong> vous est proposé <strong>seulement le mardi et mercredi de chaque semaine</strong>, des paniers de produits locaux, préparés avec soin par M. Grenier !</p>
+      <p>Sur la page <strong><a href="./reservation.php">"Réservation"</a></strong> vous sont proposés <strong>seulement le mardi et le mercredi de chaque semaine</strong>, des paniers de produits locaux, préparés avec soin par M. Grenier !</p>
     </article>
     
     <article>
@@ -88,12 +88,12 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
     <article>
         <h1>Retrait</h1>
-        <p>Les paniers réservés sont disponibles au retrait chaque vendredi. Vous pouvez retrouvé votre date de retrait sur la page <strong><a href="./panier.php">"Panier"</a></strong>.</p>
+        <p>Les paniers réservés sont disponibles au retrait chaque vendredi. Vous pouvez retrouver votre date de retrait sur la page <strong><a href="./panier.php">"Panier"</a></strong>.</p>
     </article>
 
     <article>
         <h1>Contact</h1>
-        <p>Pour toute question, contactez directement M. Grenier a l'adresse <strong>coindessaveurs@gmail.com</strong> ou rendz-vous à l'épicerie au xx rue de gordac, Gordac, 16000.</p>
+        <p>Pour toute question, contactez directement M. Grenier à l'adresse <strong>coindessaveurs@gmail.com</strong> ou rendez-vous à l'épicerie au xx rue de gordac, Gordac, 16000.</p>
     </article>
     
   </main>
