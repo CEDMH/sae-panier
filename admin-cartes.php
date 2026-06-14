@@ -6,7 +6,7 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     exit;
 }
 
-$message   = '';
+$message = '';
 // On récupère l'information de si l'admin a cliqué sur le bouton débloquer via le formulaire dédié,//
 // puis on prépare la requête pour changer le 1 en 0 avec un message de succès //
 if (isset($_POST['debloquer'])) {
@@ -25,11 +25,11 @@ if (isset($_POST['supprimer'])) {
 }
 // On récupère les informations via le formulaire dédié que l'admin a changé ou modifié //
 if (isset($_POST['modifier'])) {
-    $id        = $_POST['id'] ?? '';
-    $nom       = trim($_POST['nom'] ?? '');
-    $prenom    = trim($_POST['prenom'] ?? '');
-    $adresse   = trim($_POST['adresse'] ?? '');
-    $email     = trim($_POST['email'] ?? '');
+    $id = $_POST['id'] ?? '';
+    $nom = trim($_POST['nom'] ?? '');
+    $prenom = trim($_POST['prenom'] ?? '');
+    $adresse = trim($_POST['adresse'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $telephone = trim($_POST['telephone'] ?? '');
 // puis on modifie la BDD avec "UPDATE" qui va tout remplacer avec les données fournis avec un message de succès. //
     if ($nom && $prenom && $adresse && $email && $telephone) {

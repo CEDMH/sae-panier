@@ -7,19 +7,17 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 }
 
 $message = "";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    // AJOUTER UN NOUVEAU PANIER
+// On récupère les informations via le formulaire dédié que l'admin a rempli //
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
     if (isset($_POST['action_type']) && $_POST['action_type'] === 'ajouter') {
         $type = trim($_POST['nouveau_type']);
         $description = trim($_POST['nouvelle_description']);
         $prix = $_POST['nouveau_prix'];
         $date_retrait = $_POST['nouvelle_date_retrait'];
-
+// puis on envoie à la BDD avec "INSERT INTO" qui va créé une ligne avec les données fournis avec un message de succès. //
         if (!empty($type) && !empty($description) && !empty($date_retrait)) {
-            $req = $pdo->prepare("INSERT INTO paniers (type, description, prix, date_retrait) VALUES (:type, :desc, :prix, :date_retrait)");
-            $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait]);
+            $requete = $pdo->prepare("INSERT INTO paniers (type, description, prix, date_retrait) VALUES (:type, :desc, :prix, :date_retrait)");
+            $requete->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait]);
             $message = "Le nouveau panier '$type' avec retrait le $date_retrait a bien été ajouté !";
         }
 
@@ -100,16 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Ajout des paniers :</h1>
         <p>Ici vous pouvez créer de nouveaux paniers qui seront proposés à vos clients pour qu'ils puissent les réserver ! Si vous voulez les supprimer ou les modifier, vous pouvez cliquer sur le bouton en bas de page "Voir les paniers mis en ligne".</p>
         </article>
-
+<!-- condition qui dit que si un "message" est déclanché plus haut il s'affiche ici -->
         <?php if (!empty($message)){ ?>
-            <article class="message">
-                <?php echo $message; ?>
-            </article>
+            <article class="message"><?php echo $message; ?></article>
         <?php } ?>
 
         <article class="ajout-panier">
             <h2>Ajouter un nouveau panier !</h2>
-            
+<!-- formulaire de création de paniers avec le boutons de validation  -->           
             <form action="" method="POST">
                 <input type="hidden" name="action_type" value="ajouter">
                 

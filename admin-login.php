@@ -1,14 +1,15 @@
 <?php 
 require 'bootstrap.php';
 
-$error = '';
+$erreur = '';
+// on definit l'identifiant et le mot de passe ici //
 $admin_identifiant = 'admin';
 $admin_mdp         = 'admin';
-
+// on recupere les données rentrer par l'admin via le formulaire //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $identifiant = trim($_POST['identifiant'] ?? '');
     $mdp         = trim($_POST['mdp'] ?? '');
-
+// On compare les donées recus avec celles pré-défini et si c'est bon on incrémente "vrai" dans $_SESSION admin puis on redirige // 
     if ($identifiant && $mdp) {
 
         if ($identifiant === $admin_identifiant && $mdp === $admin_mdp) {
@@ -17,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
 
         } else {
-            $error = 'Identifiant ou mot de passe incorrect.';
+            $erreur = 'Identifiant ou mot de passe incorrect.';
         }
 
     } else {
-        $error = 'Veuillez remplir tous les champs.';
+        $erreur = 'Veuillez remplir tous les champs.';
     }
 }
 ?>
@@ -91,9 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <h1>Connexion Administrateur</h1>
             <p>Accès réservé aux administrateurs.</p>
-
-            <?php if ($error){ ?>
-                <p><?php echo htmlspecialchars($error) ?></p>
+<!-- condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici -->
+            <?php if ($erreur){ ?>
+                <p><?php echo htmlspecialchars($erreur) ?></p>
             <?php } ?>
 
             <form action="" method="post">
