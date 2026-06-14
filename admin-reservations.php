@@ -90,6 +90,7 @@ $reservations = $pdo->query($sql)->fetchAll();
         <h1>Les réservations en cours :</h1>
         <p>Ici vous pouvez consulter toutes les réservations effectuées par vos clients et cocher s'ils ont récupéré ou non leur commandes.</p>
       </article>
+      <div class="conteneur-tableau">
         <!-- TABLEAU LISTE LES RESERV ET MR GRENIER PEUT COCHER RETIRE OU PAS GRACE A AU SCRIPT JS -->
         <table role="grid" class="tableau">
             <thead>
@@ -116,6 +117,7 @@ $reservations = $pdo->query($sql)->fetchAll();
                     <?php }} ?>
             </tbody>
         </table>
+      </div>
     </main>
 
 </body>

@@ -6,7 +6,7 @@ function changerLeStatut(reserv) {
             btn.style.backgroundColor = "#25bd11";
         } else {
             btn.innerText = "Non retiré";
-            btn.style.backgroundColor = "#ff9800";
+            btn.style.backgroundColor = "#EE7744";
         }
 
     }

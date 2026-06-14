@@ -12,7 +12,7 @@
 }
 
 #super-accueil p {
-    color: #FFFF;
+    color: #FCF6EE;
     font-family: "Sansita", sans-serif;
     font-size: 50px;
     z-index: 100;
@@ -33,7 +33,7 @@
 }
 
 .paniers h2{
-    color: #202632;
+    color: #194961;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
@@ -45,7 +45,7 @@
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    background-color: #202632;
+    background-color: #194961;
     padding: 3%;
     border-radius: 0.75rem;
 }
@@ -60,7 +60,7 @@
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     .paniers a{
-        color: #202632;
+        color: #194961;
         background-color: #FCF6EE;
     }
     .paniers h2{
@@ -88,6 +88,6 @@
     }
     #super-accueil{
         background-image: none;
-        background-color: #202632;
+        background-color: #194961;
     }
 }

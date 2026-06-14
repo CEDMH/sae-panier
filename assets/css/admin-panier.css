@@ -1,45 +1,52 @@
 .message {
     background-color: #d4edda; 
-    color: #155724; 
+    color: #194961; 
     border-color: #c3e6cb; 
     padding: 10px; 
     font-weight: bold;
 }
 
 .ajout-panier{
-    border: 2px dashed #1141a1; 
+    border: 2px dashed #194961; 
     padding: 6%; 
     margin: 7%;
 }
 
 .ajout-panier h2 {
-    color: #1141a1; 
+    color: #194961; 
     margin-top: 0;
     font-size: 27px;
     margin-bottom: 10%;
+    font-family: "Sansita", sans-serif;
 }
 
 .bouton-ml {
     margin-top: 8%;
-    background-color: #25bd11; 
+    background-color: #194961; 
     border: none; 
     font-weight: bold;
+    color: #FCF6EE;
+    font-family: "Sansita", sans-serif;
 }
 
 .lien-va {
     padding: 5%;
     text-decoration: none;
-    color: #FFFF;
-    background-color: #7811a1;
+    color: #FCF6EE;
+    background-color: #EE7744;
     border-radius: 0.5rem;
     width: 100%;
     text-align: center;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .bouton-va {
     margin: 5%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .section-page-paniers {
@@ -50,21 +57,29 @@
 .paniers {
     border: 1px;
     border-style: solid;
-    border-color: #d3d3d3;
+    border-color: #ABD5D8;
     padding: 15px; 
     border-radius: 8px;
     margin: 7%;
 }
 
 .bouton-supr {
-    background-color: #ff0000;
-    color: #FFFF;
+    background-color: #EE7744;
+    color: #FCF6EE;
     border: none; 
     width: 100%;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .bouton-mj {
-    background-color: #1141a1;
-    color: #FFFF;
+    background-color: #194961;
+    color: #FCF6EE;
     border: none;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
