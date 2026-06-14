@@ -34,11 +34,6 @@ foreach ($paniers_par_mois as $mois) {
         $mois_max = $mois['mois_label'];
     }
 }
-
-// ============ ON PRÉPARE LES DONNÉES POUR LE JS ============ //
-$labels  = array_column($paniers_par_mois, 'mois_label');
-$valeurs = array_column($paniers_par_mois, 'nombre');
-
 ?>
 
 
@@ -123,22 +118,11 @@ $valeurs = array_column($paniers_par_mois, 'nombre');
     </section>
 
     <section>
-      <h2>Paniers retirés par mois</h2>
-      <canvas id="graphique-barres"></canvas>
+      <h2>Nombre de panier par mois</h2>
+      <?php foreach ($paniers_par_mois as $mois): ?>
+        <p><?php echo htmlspecialchars($mois['mois_label']) ?> : <strong><?php echo $mois['nombre'] ?></strong> paniers</p>
+      <?php endforeach; ?>
     </section>
-
-    <section>
-      <h2>Répartition par mois</h2>
-      <canvas id="graphique-camembert"></canvas>
-    </section>
-
-    <script>
-      const labels  = <?php echo json_encode($labels) ?>;
-      const valeurs = <?php echo json_encode($valeurs) ?>;
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/javascript/statistiques.js"></script>
 
   </main>
 
