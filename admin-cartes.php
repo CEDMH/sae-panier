@@ -19,8 +19,8 @@ if (isset($_POST['debloquer'])) {
 // puis on prépare la requête pour delete le client via son "id" avec un message de succès //
 if (isset($_POST['supprimer'])) {
     $id = $_POST['id'] ?? '';
-    $requete = $pdo->prepare('DELETE FROM clients WHERE id = :id');
-    $requete->execute([':id' => $id]);
+    $requete1 = $pdo->prepare('DELETE FROM clients WHERE id = :id');
+    $requete1->execute([':id' => $id]);
     $message = 'Carte supprimée avec succès.';
 }
 // On récupère les informations via le formulaire dédié que l'admin a changé ou modifié //
@@ -33,15 +33,15 @@ if (isset($_POST['modifier'])) {
     $telephone = trim($_POST['telephone'] ?? '');
 // puis on modifie la BDD avec "UPDATE" qui va tout remplacer avec les données fournis avec un message de succès. //
     if ($nom && $prenom && $adresse && $email && $telephone) {
-        $requete = $pdo->prepare('UPDATE clients SET nom = :nom, prenom = :prenom, adresse = :adresse, email = :email, telephone = :telephone WHERE id = :id');
-        $requete->execute([':id' => $id,':nom' => $nom,':prenom' => $prenom,':adresse' => $adresse,':email' => $email,':telephone' => $telephone,]);
+        $requete2 = $pdo->prepare('UPDATE clients SET nom = :nom, prenom = :prenom, adresse = :adresse, email = :email, telephone = :telephone WHERE id = :id');
+        $requete2->execute([':id' => $id,':nom' => $nom,':prenom' => $prenom,':adresse' => $adresse,':email' => $email,':telephone' => $telephone,]);
         $message = 'Carte modifiée avec succès.';
     } 
 }
 // On récupère toutes les infos de la table clients pour les mettrent dans un tableau //
-$requete = $pdo->prepare('SELECT * FROM clients ORDER BY nom ASC');
-$requete->execute();
-$clients = $requete->fetchAll();
+$requete3 = $pdo->prepare('SELECT * FROM clients ORDER BY nom ASC');
+$requete3->execute();
+$clients = $requete3->fetchAll();
 
 ?>
 
@@ -165,8 +165,8 @@ $clients = $requete->fetchAll();
             <button type="submit" name="debloquer">Débloquer</button>
         </form>
         <?php endif; ?>
-<!-- Formulaire du bouton pour supprimer un compte client  -->
-        <form action="" method="post">
+<!-- Formulaire du bouton pour supprimer un compte client avec un onsubmit qui permet d'avoir une fenetre modale en pop-up  -->
+        <form action="" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer définitivement cette carte ?');" style="margin: 0;">
             <input type="hidden" name="id" value="<?php echo $client['id'] ?>">
             <button type="submit" name="supprimer">Supprimer</button>
         </form>

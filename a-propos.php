@@ -5,9 +5,6 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     header('Location: index.php');
     exit;
 }
-
-$requete = $pdo->query("SELECT type, description, prix, date_retrait FROM paniers");
-$liste_paniers = $requete->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +13,11 @@ $liste_paniers = $requete->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>À PROPOS</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
-    
+
     <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
 
     <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
@@ -33,16 +30,15 @@ $liste_paniers = $requete->fetchAll();
     <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-
+    
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/reservation.css" rel="stylesheet">
+    <link href="./assets/css/client-index.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 </head>
 
 <body class="fond-d-ecran">
 
-  <!-- NAV/HEADER -->
   <nav class="header">
     <ul id="menu-burger">
       <li>
@@ -52,21 +48,6 @@ $liste_paniers = $requete->fetchAll();
           </summary>
             <ul dir="ltr">
               <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
-
-              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-              <?php
-              $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 6) {
-              ?>
-              <li class="case"><a href="reservation.php">Réservation</a></li>
-              <?php
-              } else {
-              ?>
-              <li class="case-indisponible"><a href="#">Réservation</a></li>
-              <?php
-              }
-              ?>
-
               <li class="case"><a href="panier.php">Panier</a></li>
               <li class="case"><a href="a-propos.php">À propos</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
@@ -84,63 +65,36 @@ $liste_paniers = $requete->fetchAll();
     </ul>
   </nav>
 
-  <!-- QAUTRE SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
+  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
   <br>
   <br>
   <br>
 
   <main>
+
+    <div id="super-accueil">
+      <p>Notre priorité : vous proposer des produits frais et locaux !</p>
+    </div>
+
+    <article>
+      <h1>Le Coin des Saveurs</h1>
+      <p>Sur la page <strong><a href="./reservation.php">"Réservation"</a></strong> vous sont proposés <strong>seulement le mardi et le mercredi de chaque semaine</strong>, des paniers de produits locaux, préparés avec soin par M. Grenier !</p>
+    </article>
     
-    <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-
-    <?php
-
-      $aujourdhui = date('N');
-
-      if ($aujourdhui == 2 || $aujourdhui == 7) {
-    ?>
-      
-      <article>
-        <h1>Les super paniers à réserver :</h1>
-        <p>Voici nos petits bijoux de cette semaine...</p>
-      </article>
-      
-      <div class="les-paniers">
-        <?php
-        if (count($liste_paniers) > 0) {
-            foreach ($liste_paniers as $panier) { ?>
-              <div class="paniers">
-                <h2>Format du panier: <?php echo htmlspecialchars($panier['type']);?></h2>
-                <img src="./assets/image/panier.jpg" class="image-panier">
-                <p><?php echo htmlspecialchars($panier['description']); ?></p>
-                <p class="price"><?php echo htmlspecialchars((string)$panier['prix']);?>€</p>
-                <div class="reserver">
-                  <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Voulez-vous ajouter cette réservation à votre panier ?');">
-                    <input type="hidden" name="type_panier" value="<?php echo htmlspecialchars($panier['type']); ?>">
-                    <input type="hidden" name="date_retrait" value="<?php echo htmlspecialchars($panier['date_retrait']); ?>"> 
-                    <button type="submit">Ajouter à mon panier</button>
-                  </form>
-                </div>
-              </div>
-      <?php } } else { ?>
-          <p>Aucun panier n'est disponible à la réservation pour le moment.</p>
-      <?php } ?>
-      </div>
-
-    <?php
-      } else {
-    ?>
-
-    <article class="message-fermeture">
-      <div class="paniers">
-        <h2>Réservations fermées</h2>
-        <p>Petit malin ! Tu pensais y arriver en passant par là ? Bien joué mais raté ! Reviens bientôt pour réserver nos nouveaux paniers !</p>
-      </div>
+    <article>
+        <h1>Notre engagement</h1>
+        <p>Nous sélectionnons des produits frais et locaux pour composer des paniers adaptés à chaque foyer, en favorisant les circuits courts et les producteurs de la région.</p>
     </article>
 
-    <?php
-      }
-    ?>
+    <article>
+        <h1>Retrait</h1>
+        <p>Les paniers réservés sont disponibles au retrait chaque vendredi. Vous pouvez retrouver votre date de retrait sur la page <strong><a href="./panier.php">"Panier"</a></strong>.</p>
+    </article>
+
+    <article>
+        <h1>Contact</h1>
+        <p>Pour toute question, contactez directement M. Grenier à l'adresse <strong>coindessaveurs@gmail.com</strong> ou rendez-vous à l'épicerie au xx rue de gordac, Gordac, 16000.</p>
+    </article>
     
   </main>
 

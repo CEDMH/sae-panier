@@ -64,6 +64,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               ?>
 
               <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="a-propos.php">À propos</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
