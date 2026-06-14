@@ -1,5 +1,5 @@
 #super-accueil {
-    background-image: url("./../image/epicerie.jpg");
+    background-image: url("./../image/epicerie-sombre.jpg");
     background-size: cover;
     border-radius: 1.5rem;
     width: 90%;
@@ -12,9 +12,29 @@
 }
 
 #super-accueil p {
-    color: #FFFF;
+    color: #FCF6EE;
     font-family: "Sansita", sans-serif;
-    font-size: 50px;
+    font-size: 270%;
+    z-index: 100;
+}
+
+#super-a-propos {
+    background-image: url("./../image/fraises.jpg");
+    background-size: cover;
+    border-radius: 1.5rem;
+    width: 90%;
+    display: block;
+    margin: 5%;
+    max-width: 100%;
+    padding: 9%;
+    box-shadow: 0px 3px 10px;
+    z-index: 0;
+}
+
+#super-a-propos p {
+    color: #FCF6EE;
+    font-family: "Sansita", sans-serif;
+    font-size: 270%;
     z-index: 100;
 }
 
@@ -33,7 +53,7 @@
 }
 
 .paniers h2{
-    color: #202632;
+    color: #194961;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
@@ -45,7 +65,7 @@
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    background-color: #202632;
+    background-color: #194961;
     padding: 3%;
     border-radius: 0.75rem;
 }
@@ -54,23 +74,36 @@
     text-align: center;
     margin: 20px;
     border-radius: 0.5rem;
-    margin-top: 130px;
+    margin-top: 10%;
 } 
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
     .paniers a{
-        color: #202632;
-        background-color: #FCF6EE;
+        color: #FCF6EE;
+        background-color: #EE7744;
     }
     .paniers h2{
         color: #FCF6EE;
     }
-    .super-accueil{
-        box-shadow: 0px 0px 0px;
+    .les-paniers {
+        background-color: #194961;
+    }
+    #super-accueil{
+        box-shadow: 0px 0px 0px !important;
         border-style: solid;
-        border-width: 5px;
-        border-color: #FCF6EE;
+        border-width: 3px;
+        border-color: #194961;
+    }
+    #super-a-propos{
+        box-shadow: 0px 0px 0px !important;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #194961;
+    }
+    article a {
+    color: #EE7744;
+    text-decoration-color: #EE7744;
     }
 }
 
@@ -88,6 +121,14 @@
     }
     #super-accueil{
         background-image: none;
-        background-color: #202632;
+        background-color: #194961;
+    }
+    #super-a-propos p{
+        font-family: 'OpenDyslexic', Arial, sans-serif !important;
+        font-size: 40px;
+    }
+    #super-a-propos {
+        background-image: none;
+        background-color: #194961;
     }
 }

@@ -1,0 +1,118 @@
+<?php
+require 'bootstrap.php';
+
+if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !empty($_SESSION['client_tel'])))) {
+    header('Location: index.php');
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À PROPOS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
+
+    <link href="assets/pico-main/css/pico.sand.css" rel="stylesheet">
+
+    <link href="assets/font-awesome/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/brands.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/regular.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/solid.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/client-index.css" rel="stylesheet">
+
+    <script src="assets/javascript/dm-lm.js"></script>
+</head>
+
+<body class="fond-d-ecran">
+
+  <nav class="header">
+    <ul id="menu-burger">
+      <li>
+        <details class="dropdown">
+          <summary>
+            
+          </summary>
+            <ul dir="ltr">
+              <li class="case"><a href="client-index.php">Accueil</a></li>
+
+              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 6) {
+              ?>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
+              <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="a-propos.php" class="active">À propos</a></li>
+              <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+            </ul>
+        </details>
+      </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
+    </ul>
+  </nav>
+
+  <!-- TROIS SAUTS A LA LIGNE BRUTAUX POUR QUE LE MAIN NE SOIT PAS CACHÉ PAR LE HEADER/NAV QUI EST EN POSITION FIXE -->
+  <br>
+  <br>
+  <br>
+
+  <main>
+
+    <div id="super-a-propos">
+      <p>Notre priorité : vous proposer des produits frais et locaux !</p>
+    </div>
+
+    <article>
+      <h1>Le Coin des Saveurs</h1>
+      <p>Sur la page <strong><a href="./reservation.php">"Réservation"</a></strong> vous sont proposés <strong>seulement le mardi et le mercredi de chaque semaine</strong>, des paniers de produits locaux, préparés avec soin par M. Grenier !</p>
+    </article>
+    
+    <article>
+        <h1>Notre engagement</h1>
+        <p>Nous sélectionnons des produits frais et locaux pour composer des paniers adaptés à chaque foyer, en favorisant les circuits courts et les producteurs de la région.</p>
+    </article>
+
+    <article>
+        <h1>Retrait</h1>
+        <p>Les paniers réservés sont disponibles au retrait chaque vendredi. Vous pouvez retrouver votre date de retrait sur la page <strong><a href="./panier.php">"Panier"</a></strong>.</p>
+    </article>
+
+    <article>
+        <h1>Contact</h1>
+        <p>Pour toute question, contactez directement M. Grenier à l'adresse <strong>coindessaveurs@gmail.com</strong> ou rendez-vous à l'épicerie au xx rue de gordac, Gordac, 16000.</p>
+    </article>
+    
+  </main>
+
+</body>
+
+</html>

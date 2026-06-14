@@ -4,6 +4,24 @@ div {
 
 #page-index {
     margin: 5%;
+    margin-bottom: 15%;
+    border-style: solid;
+    border-color: #dfd9d2;
+    border-width: 4px;
+    padding: 9%;
+    border-radius: 1.75rem;
+    background-color: #FCF6EE;
+    box-shadow: -3px 3px 15px;
+}
+
+#se-connecter {
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #194961;
+    border: none;
+    color: #FCF6EE;
 }
 
 /*ACTIVATION POLICE OPENDYSLEXIC*/
@@ -21,13 +39,18 @@ div {
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
-    #numerocarte{
-        background-color: #FCF6EE !important;
+    #page-index {
+        background-color: #194961 !important;
+        border-color: #EE7744;
+        box-shadow: 0px 0px 0px;
     }
-    #nom{
-        background-color: #FCF6EE !important;
+    #page-index a {
+        color: #EE7744;
+        text-decoration-color: #EE7744;
     }
-    #telephone{
-        background-color: #FCF6EE !important;
+    #se-connecter {
+        background-color: #EE7744;
+        color: #FCF6EE;
+        border: none;
     }
 }

@@ -1,5 +1,7 @@
 .les-paniers {
-    margin: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 8%;
     border-radius: 0.5rem;
 }
 
@@ -13,14 +15,14 @@
     border-style: solid;
     border-color: #dbd5ce;
     border-width: 4px;
-    padding: 10%;
+    padding: 9%;
     border-radius: 1.75rem;
     background-color: #FCF6EE;
-    box-shadow: -5px 5px 18px;
+    box-shadow: -3px 3px 15px;
 }
 
 .paniers h2{
-    color: #202632;
+    color: #194961;
     font-family: "Sansita", sans-serif;
     z-index: 100;
 }
@@ -53,18 +55,44 @@
     color: rgb(1, 172, 1);
 }
 
+article p {
+    text-align:center;
+    color: #194961;
+}
+
+article h1 {
+    text-align:center;
+    color: #194961;
+}
+
+article {
+    margin-top:15px;
+}
+
+.ajt-panier {
+    background-color: #EE7744;
+    color: #FCF6EE;
+    border: none;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 [data-theme=dark]{
     .price {
         font-size: 30px;
         color: rgb(1, 172, 1);
     }
     .paniers {
-        background-color: #202632;
-        border-color: #10131a;
+        background-color: #194961;
+        border-color: #EE7744;
+        border-width: 3px;
+        border-style: solid;
         box-shadow: 0px 0px 0px;
     }
     .paniers a{
-        color: #202632;
+        color: #194961;
         background-color: #FCF6EE;
     }
     h2 {

@@ -1,0 +1,128 @@
+.message {
+    background-color: #d4edda; 
+    color: #194961; 
+    border-color: #c3e6cb; 
+    padding: 10px; 
+    font-weight: bold;
+}
+
+.ajout-panier{
+    border-width: 2px;
+    border-color: #194961;
+    border-style: dashed;
+    padding: 6%; 
+    margin: 7%;
+}
+
+.ajout-panier h2 {
+    color: #194961; 
+    margin-top: 0;
+    font-size: 27px;
+    margin-bottom: 10%;
+    font-family: "Sansita", sans-serif;
+}
+
+.bouton-ml {
+    margin-top: 8%;
+    background-color: #194961; 
+    border: none; 
+    font-weight: 600;
+    color: #FCF6EE;
+    font-family: "Sansita", sans-serif;
+}
+
+.lien-va {
+    padding: 5%;
+    text-decoration: none;
+    color: #FCF6EE;
+    background-color: #EE7744;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-align: center;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bouton-va {
+    margin: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.section-page-paniers {
+    display: grid; 
+    grid-template-columns: 1fr; 
+}
+
+.paniers {
+    border: 1px;
+    border-style: solid;
+    border-color: #ABD5D8;
+    padding: 15px; 
+    border-radius: 8px;
+    margin: 7%;
+}
+
+.bouton-supr {
+    background-color: #EE7744;
+    color: #FCF6EE;
+    border: none; 
+    width: 100%;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bouton-mj {
+    background-color: #194961;
+    color: #FCF6EE;
+    border: none;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
+[data-theme=dark]{
+    .ajout-panier {
+        border-color: #FCF6EE;
+        background-color: #194961;
+    }
+    .ajout-panier h2{
+        color: #FCF6EE;
+    }
+    .bouton-ml{
+        background-color:#EE7744;
+    }
+    .paniers {
+        border-color: #EE7744;
+        background-color: #194961;
+    }
+    .bouton-mj {
+        background-color: #EE7744;
+    }
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
+[dyslexie-text=dys]{
+    .ajout-panier h2{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-ml {
+        font-family: "OpenDyslexic", Arial, sans-serif;
+        font-weight: 400;
+    }
+    .lien-va {
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-mj {
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-supr {
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+}

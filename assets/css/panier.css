@@ -1,0 +1,107 @@
+.reservation-clients {
+    margin-bottom: 10%;
+    margin-right: 13%;
+    margin-left: 13%;
+    margin-top: 8%;
+    border-style: solid;
+    border-color: #dbd5ce;
+    border-width: 4px;
+    padding: 5%;
+    border-radius: 1.75rem;
+    background-color: #FCF6EE;
+    box-shadow: -3px 3px 15px;
+}
+
+.reservation-clients h2{
+    color: #202632;
+    font-family: "Sansita", sans-serif;
+    z-index: 100;
+    font-size: 18px;
+}
+
+.reservation-clients p{
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #202632;
+    padding: 3%;
+    border-radius: 0.75rem;
+}
+
+article {
+    text-align: center;
+}
+
+.boutons {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#retour {
+    width: 100%;
+    background-color: #EE7744;
+    padding: 3%;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.pas-reserv{
+    text-align: center;
+}
+
+.bouton-ann {
+    border: none;
+    background-color: #EE7744;
+    color: #FCF6EE;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 10%;
+}
+
+[data-theme=dark]{
+    .reservation-clients {
+        background-color: #194961;
+        border-color: #194961;
+        box-shadow: 0px 0px 0px;
+    }
+    .reservation-clients p{
+        color: #194961;
+        background-color: #FCF6EE;
+    }
+    h2 {
+        color: #FCF6EE;
+    }
+}
+
+[dyslexie-text=dys]{
+    .reservation-clients p{
+        font-family: 'OpenDyslexic', Arial, sans-serif;
+    }
+    h2 {
+        font-family: 'OpenDyslexic', Arial, sans-serif;
+    }
+    #retour {
+        font-family: 'OpenDyslexic', Arial, sans-serif;
+    }
+    #retirer {
+        font-family: 'OpenDyslexic', Arial, sans-serif !important;
+    }
+    .bouton-ann {
+        font-family: 'OpenDyslexic', Arial, sans-serif;
+    }
+}

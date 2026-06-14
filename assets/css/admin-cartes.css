@@ -1,0 +1,122 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2%;
+}
+
+section {
+    width: 100%;
+    background-color: #FCF6EE;
+    margin-bottom: 4%;
+    padding: 3%;
+    border-radius: 0.5rem;
+    margin: 5%;
+    border-style: solid;
+    border-color: #dbd5ce;
+    border-width: 4px;
+    box-shadow: -3px 3px 15px;
+}
+
+section p {
+    color: #194961;
+    font-family: "Sansita", sans-serif;
+    margin-bottom: 8%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-size: 22px;
+}
+
+main section div input {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.bouton-vd {
+    width: 100%;
+    margin-top: 8px;
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #194961;
+    padding: 3%;
+    border-radius: 0.50rem;
+    border: none;
+    cursor: pointer;
+}
+
+.bouton-db {
+    width: 100%;
+    margin-top: 8px;
+    text-decoration: none;
+    color: #194961;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #ABD5D8;
+    padding: 3%;
+    border-radius: 0.50rem;
+    border: none;
+    cursor: pointer;
+}
+
+.bouton-spr {
+    width: 100%;
+    margin-top: 8px;
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #EE7744;
+    padding: 3%;
+    border-radius: 0.50rem;
+    border: none;
+    cursor: pointer;
+}
+
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
+[data-theme=dark]{
+    .paniers a{
+        color: #194961;
+        background-color: #FCF6EE;
+    }
+    .paniers h2{
+        color: #FCF6EE;
+    }
+    section {
+        background-color: #194961;
+        border-color: #EE7744;
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0px 0px 0px;
+    }
+    .bouton-vd {
+        color: #194961;
+        background-color: #FCF6EE;
+    }
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
+[dyslexie-text=dys]{
+    .paniers a{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .paniers h2{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-db{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-spr{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+    .bouton-vd{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+}

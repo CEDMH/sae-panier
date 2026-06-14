@@ -30,7 +30,7 @@ p {
 }
 
 #menu-burger {
-    margin-right: 1%;
+    margin-left: 1%;
 }
 
 .dropdown {
@@ -67,6 +67,15 @@ p {
     background-color: #310000;
 }
 
+.deco {
+    color: #322020;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 18px;
+}
+
 .active {
     background-color: #d6d1cb;
     color: #FCF6EE;
@@ -99,7 +108,7 @@ background-image: url(../image/bars-solid.png) !important;
     };
     .case :hover {
         background-color: #FCF6EE;
-        color: #202632;
+        color: #194961;
     };
     .case-indisponible a {
         color: #ffffff;
@@ -109,6 +118,9 @@ background-image: url(../image/bars-solid.png) !important;
     };
     .active a{
         color: #000000;
+    }
+    article {
+    background-color: #194961;
     }
 }
 
@@ -131,22 +143,6 @@ background-image: url(../image/bars-solid.png) !important;
 }
 
 /*MEDIA QUERIES*/
-@media screen and (min-width: 900px) {
-    
-            #logo {
-                width: 13%;
-                margin-left: 1%;
-            }
-
-            .lecoindessaveurs {
-                margin-right: 0%;
-            }
-
-            #titre {
-                 width: 60%;
-            }
-
-}
 
 @media screen and (max-width: 720px) {
             
@@ -157,28 +153,10 @@ background-image: url(../image/bars-solid.png) !important;
             }
             
             .lecoindessaveurs {
-                margin-right: 10%;
+                margin-left: 4%;
             }
 
             #titre {
                  width: 100%;
             }
-
 }
-
-@media screen and (min-width: 720px) and (max-width: 900px) {
-            
-            #logo {
-                width: 20%;
-                margin-left: 1%;
-            }
-
-            .lecoindessaveurs {
-                margin-right: 10%;
-            }
-
-            #titre {
-                 width: 70%;
-            }
-
-        }

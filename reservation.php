@@ -5,6 +5,10 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     header('Location: index.php');
     exit;
 }
+
+// Cette fonction va récupérer toutes les informations du tableau paniers de la base de donnée pour les stocker dans la variable $liste_paniers.
+$requete = $pdo->query("SELECT type, description, prix, date_retrait FROM paniers");
+$liste_paniers = $requete->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +45,13 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
   <!-- NAV/HEADER -->
   <nav class="header">
-    <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
-    </ul>
-    <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
-    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
           <summary>
             
           </summary>
-            <ul dir="rtl">
+            <ul dir="ltr">
               <li class="case"><a href="client-index.php">Accueil</a></li>
 
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
@@ -71,10 +69,19 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               ?>
 
               <li class="case"><a href="panier.php">Panier</a></li>
+              <li class="case"><a href="a-propos.php">À propos</a></li>
+              <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
   </nav>
 
@@ -88,84 +95,47 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
 
     <?php
-
       $aujourdhui = date('N');
 
       if ($aujourdhui == 2 || $aujourdhui == 3) {
     ?>
       
-      <article style="margin-top:15px;">
-        <h1 style="text-align:center;">Les super paniers à réserver :</h1>
-        <p style="text-align:center;">Voici nos petits bijoux de cette semaine...</p>
+      <article>
+        <h1>Les super paniers à réserver :</h1>
+        <p>Voici nos petits bijoux de cette semaine...</p>
       </article>
       
-      <article class="les-paniers">
-
-        <div class="paniers">
-          <h2>Panier 1 personne</h2>
-          <img src="./assets/image/panier-m.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 1';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 1';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
-        </div>
-
-        <div class="paniers">
-          <h2>Panier 2 personnes</h2>
-          <img src="./assets/image/panier-l.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 6';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 6';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
-        </div>
-
-        <div class="paniers">
-          <h2>Panier 3-4 personnes</h2>
-          <img src="./assets/image/panier-xl.jpg" class="image-panier">
-          <p><?php
-          $sql = 'SELECT description FROM paniers WHERE id = 3';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['description'];
-          ?></p>
-          <p class="price"><?php
-          $sql = 'SELECT prix FROM paniers WHERE id = 3';
-          $reponse = $pdo->query($sql); 
-          $descpanier = $reponse->fetch();
-          echo $descpanier['prix'];
-          ?>€</p>
-          <div class="reserver"><a href="panier.php">Réserver Panier</a></div>
-        </div>
-
-      </article>
+      <div class="les-paniers">
+        <?php
+        // Cette fonction liste tous les paniers rentrés dans la base de donnée par l'administrateur et les propose aux clients qui peuvent réserver celui qui veulent en appuyant sur le bouton et envoie en POST
+        if (count($liste_paniers) > 0) {
+            foreach ($liste_paniers as $panier) { ?>
+              <div class="paniers">
+                <h2>Format du panier: <?php echo htmlspecialchars($panier['type']);?></h2>
+                <img src="./assets/image/panier.jpg" class="image-panier">
+                <p><?php echo htmlspecialchars($panier['description']); ?></p>
+                <p class="price"><?php echo htmlspecialchars((string)$panier['prix']);?>€</p>
+                <div class="reserver">
+                  <form action="ajouter_commande.php" method="POST" onsubmit="return confirm('Voulez-vous ajouter cette réservation à votre panier ?');">
+                    <input type="hidden" name="type_panier" value="<?php echo htmlspecialchars($panier['type']); ?>">
+                    <input type="hidden" name="date_retrait" value="<?php echo htmlspecialchars($panier['date_retrait']); ?>"> 
+                    <button type="submit" class="ajt-panier">Ajouter à mon panier</button>
+                  </form>
+                </div>
+              </div>
+      <?php } } else { ?>
+          <!-- Si aucun panier n'est disponible dans la base de donnée alors ça revoit ce message là. -->
+          <p>Aucun panier n'est disponible à la réservation pour le moment.</p>
+      <?php } ?>
+      </div>
 
     <?php
       } else {
     ?>
 
     <article class="message-fermeture">
-      <div class="paniers">
-        <h2>Réservations fermées</h2>
+        <h1>Réservations fermées</h1>
         <p>Petit malin ! Tu pensais y arriver en passant par là ? Bien joué mais raté ! Reviens bientôt pour réserver nos nouveaux paniers !</p>
-      </div>
     </article>
 
     <?php

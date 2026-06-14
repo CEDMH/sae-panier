@@ -1,0 +1,62 @@
+.lien-gestion {
+    margin: 5%;
+    border-radius: 0.5rem;
+}
+
+.gestion {
+    margin-bottom: 4%;
+    padding: 2%;
+}
+
+.gestion h2{
+    color: #202632;
+    font-family: "Sansita", sans-serif;
+    z-index: 100;
+    width: 100%;
+}
+
+.gestion p {
+    margin: 8%;
+}
+
+.gestion a{
+    text-decoration: none;
+    color: #FCF6EE;
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #194961;
+    padding: 3%;
+    border-radius: 0.75rem;
+    font-size: 14px;
+}
+
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
+[data-theme=dark]{
+    .lien-gestion {
+        color: #FCF6EE;
+        background-color: #194961;
+        border-color: #EE7744;
+        border-width: 1px;
+        border-style: solid;
+    }
+    .lien-gestion h2{
+        color: #FCF6EE;
+    }
+    .gestion a {
+        background-color: #EE7744;
+    }
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
+[dyslexie-text=dys]{
+    .gestion a{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+        font-size: 9px;
+    }
+    .lien-gestion h2{
+        font-family: "OpenDyslexic", Arial, sans-serif;
+    }
+}
+

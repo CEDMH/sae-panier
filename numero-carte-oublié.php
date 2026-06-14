@@ -12,12 +12,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nom && $telephone) {
         $requete = $pdo->prepare('SELECT * FROM clients WHERE nom = :nom AND telephone = :telephone LIMIT 1'); 
         $requete->execute([':nom' => $nom, ':telephone' => $telephone, ]); 
-        $client = $requete->fetch(); //
+        $client = $requete->fetch(); 
+// ici on vient tester si le client a renouveler une commande dans les 3 precedant mois si se n'est pas le cas Hop on bloque !! //
+// en premier on va chercher la date de retrait dans la table reservation avec le nom et prenom recuperer plus tot et stocker dans $client, pour nous stocker ça dans $dernier_reservation //
+// ensuite on applique la date de retrait dans $date_retrait, on donne la date du jour a $aujourdhui et on calcul la différence entre aujourd'hui et la dat de retrait dans $difference //
+// puis on vient comparé la différence qu'on a calculé avec la condition des 3 mois (en mettant les années car au bout de 12 mois ça repasse a 0), si c'est pas bon on change la valeur de la carte pour la bloqué et on change ça aussi pour $client car sinon ça biaise le reste //
+        if ($client) {
+            $requete2 = $pdo->prepare('SELECT date_retrait FROM reservations WHERE nom = :nom AND prenom = :prenom ORDER BY date_retrait DESC LIMIT 1');
+            $requete2->execute([':nom' => $client['nom'], ':prenom' => $client['prenom'],]);
+            $derniere_reservation = $requete2->fetch();
+
+            if ($derniere_reservation) {
+                $date_retrait = new DateTime($derniere_reservation['date_retrait']);
+                $aujourdhui = new DateTime();
+                $difference = $aujourdhui->diff($date_retrait);
+
+                if ($difference->m >= 3 && $difference->y >= 0) {
+                    $requete3 = $pdo->prepare('UPDATE clients SET est_bloque = 1 WHERE id = :id');
+                    $requete3->execute([':id' => $client['id']]);
+                    $client['est_bloque'] = 1; 
+                }
+            }
 // condition pour savoir si la carte est bloqué avec les infos recuperer de la BD stocké dans $client //
 // puis stockage des infos importantes dans les variables $_SESSION et redirection vers la page // 
-        if ($client) {
             if ($client['est_bloque'] == 1) {
-                $error = 'Votre compte est bloqué. Veuillez contacter le support.';
+                $error = 'Votre compte est bloqué. Veuillez contacter le gérant.';
             } else {
                 
                 $_SESSION['client_nom']    = $client['nom'];
@@ -69,23 +88,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="fond-d-ecran">
 
     <nav class="header">
-    <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
-    </ul>
-    <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
-    </ul>
     <ul id="menu-burger">
       <li>
         <details class="dropdown">
           <summary>
             
           </summary>
-            <ul dir="rtl">
-                <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
+            <ul dir="ltr">
+              <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
+              <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
             </ul>
         </details>
       </li>
+    </ul>
+    <ul>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+    </ul>
+    <ul>
+      <li><img src="assets/image/logo.png" id="logo"></li>
     </ul>
   </nav>
 
@@ -99,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <h1>Numéro de carte oublié</h1>
             <p>Identifiez-vous avec votre nom et votre numéro de téléphone.</p>
-
+<!-- // condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici // -->
             <?php if ($error): ?>
                 <p><?php echo htmlspecialchars($error) ?></p>
             <?php endif; ?>
@@ -119,11 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </section>
             </form>
-        </section>
 
-        <section id="page-index">
             <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
+            
         </section>
 
     </main>
