@@ -30,6 +30,8 @@
     padding: 3%;
     border-radius: 0.75rem;
     font-size: 14px;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/

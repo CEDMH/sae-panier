@@ -7,15 +7,14 @@ main {
 
 section {
     width: 100%;
-    background-color: #FCF6EE;
     margin-bottom: 4%;
     padding: 3%;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     margin: 5%;
     border-style: solid;
-    border-color: #dbd5ce;
-    border-width: 4px;
-    box-shadow: -3px 3px 15px;
+    border-color: #ABD5D8;
+    border-width: 1px;
+    background-color: #FFFF;
 }
 
 section p {
@@ -42,10 +41,11 @@ main section div input {
     font-style: normal;
     text-align: center;
     background-color: #194961;
-    padding: 3%;
-    border-radius: 0.50rem;
+    padding: 5%;
+    border-radius: 0.25rem;
     border: none;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .bouton-db {
@@ -58,10 +58,11 @@ main section div input {
     font-style: normal;
     text-align: center;
     background-color: #ABD5D8;
-    padding: 3%;
-    border-radius: 0.50rem;
+    padding: 5%;
+    border-radius: 0.25rem;
     border: none;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .bouton-spr {
@@ -74,10 +75,11 @@ main section div input {
     font-style: normal;
     text-align: center;
     background-color: #EE7744;
-    padding: 3%;
-    border-radius: 0.50rem;
+    padding: 5%;
+    border-radius: 0.25rem;
     border: none;
     cursor: pointer;
+    font-size: 14px;
 }
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
