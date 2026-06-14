@@ -31,35 +31,21 @@
     border-radius: 0.75rem;
 }
 
-#titre-top {
+article {
     text-align: center;
 }
 
 .boutons {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr; 
     gap: 15px; 
     margin-left: 5%;
     margin-right: 5%;
 }
 
-#paiement {
-    width: 100%;
-    color: #FCF6EE;
-    font-family: "Martel", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    background-color: #25bd11;
-    padding: 3%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 0.25rem;
-}
-
 #retour {
     width: 100%;
-    background-color: #1141a1;
+    background-color: #EE7744;
     padding: 3%;
     border-radius: 0.25rem;
     text-decoration: none;
@@ -72,13 +58,29 @@
     padding-bottom: 5%;
 }
 
+.pas-reserv{
+    text-align: center;
+}
+
+.bouton-ann {
+    border: none;
+    background-color: #EE7744;
+    color: #FCF6EE;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 10%;
+}
+
 [data-theme=dark]{
     .reservation-clients {
-        background-color: #202632;
-        border-color: #10131a;
+        background-color: #194961;
+        border-color: #194961;
+        box-shadow: 0px 0px 0px;
     }
     .reservation-clients p{
-        color: #202632;
+        color: #194961;
         background-color: #FCF6EE;
     }
     h2 {
@@ -93,13 +95,13 @@
     h2 {
         font-family: 'OpenDyslexic', Arial, sans-serif;
     }
-    #paiement {
-        font-family: 'OpenDyslexic', Arial, sans-serif;
-    }
     #retour {
         font-family: 'OpenDyslexic', Arial, sans-serif;
     }
     #retirer {
         font-family: 'OpenDyslexic', Arial, sans-serif !important;
+    }
+    .bouton-ann {
+        font-family: 'OpenDyslexic', Arial, sans-serif;
     }
 }

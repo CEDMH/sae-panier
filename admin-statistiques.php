@@ -68,7 +68,7 @@ foreach ($paniers_mois as $mois) {
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/admin-index.css" rel="stylesheet">
+    <link href="./assets/css/statistiques.css" rel="stylesheet">
 
     <script src="assets/javascript/dm-lm.js"></script>
 
@@ -84,11 +84,11 @@ foreach ($paniers_mois as $mois) {
             
           </summary>
             <ul dir="ltr">
-              <li class="case"><a href="admin-index.php" class="active">Accueil</a></li>
+              <li class="case"><a href="admin-index.php">Accueil</a></li>
               <li class="case"><a href="admin-reservations.php">Paniers</a></li>
               <li class="case"><a href="admin-reservations.php">Réservations</a></li>
               <li class="case"><a href="admin-cartes.php">Cartes</a></li>
-              <li class="case"><a href="admin-statistiques.php">Statistiques</a></li>
+              <li class="case"><a href="admin-statistiques.php" class="active">Statistiques</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>

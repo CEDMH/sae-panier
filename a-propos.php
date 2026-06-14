@@ -47,9 +47,24 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
             
           </summary>
             <ul dir="ltr">
-              <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
+              <li class="case"><a href="client-index.php">Accueil</a></li>
+
+              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
+              <?php
+              $aujourdhui = date('N');
+              if ($aujourdhui == 2 || $aujourdhui == 6) {
+              ?>
+              <li class="case"><a href="reservation.php">Réservation</a></li>
+              <?php
+              } else {
+              ?>
+              <li class="case-indisponible"><a href="#">Réservation</a></li>
+              <?php
+              }
+              ?>
+
               <li class="case"><a href="panier.php">Panier</a></li>
-              <li class="case"><a href="a-propos.php">À propos</a></li>
+              <li class="case"><a href="a-propos.php" class="active">À propos</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>
@@ -72,7 +87,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
   <main>
 
-    <div id="super-accueil">
+    <div id="super-a-propos">
       <p>Notre priorité : vous proposer des produits frais et locaux !</p>
     </div>
 

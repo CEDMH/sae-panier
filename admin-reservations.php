@@ -95,24 +95,24 @@ $reservations = $pdo->query($sql)->fetchAll();
         <table role="grid" class="tableau">
             <thead>
                 <tr>
-                    <th>Nom / Prénom</th>
-                    <th>N° Carte Fidélité</th>
-                    <th>Format / Type Panier</th>
-                    <th>Date Retrait Prévue</th>
-                    <th class="cellule-statut">Statut (cliquez pour changer)</th>
+                  <th>Nom / Prénom</th>
+                  <th>N° Carte Fidélité</th>
+                  <th>Format / Type Panier</th>
+                  <th>Date Retrait Prévue</th>
+                  <th class="cellule-statut">Statut (cliquez pour changer)</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (count($reservations) > 0){
                      foreach ($reservations as $reserv => $res){ ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($res['nom']); ?> <?php echo htmlspecialchars($res['prenom']); ?></td>
-                            <td><?php echo htmlspecialchars($res['num_carte_fidelite'] ?? 'Pas de carte'); ?></td>
-                            <td><?php echo htmlspecialchars($res['type_panier']); ?></td>
-                            <td><?php echo htmlspecialchars($res['date_retrait']); ?></td>
-                            <td class="cellule-statut">
-                                <button type="button" onclick="changerLeStatut(<?php echo $reserv; ?>)" id="btn-statut-<?php echo $reserv; ?>" class="btn-statut non-retire">Non retiré</button>
-                            </td>
+                          <td><?php echo htmlspecialchars($res['nom']); ?> <?php echo htmlspecialchars($res['prenom']); ?></td>
+                          <td><?php echo htmlspecialchars($res['num_carte_fidelite'] ?? 'Pas de carte'); ?></td>
+                          <td><?php echo htmlspecialchars($res['type_panier']); ?></td>
+                          <td><?php echo htmlspecialchars($res['date_retrait']); ?></td>
+                          <td class="cellule-statut">
+                              <button type="button" onclick="changerLeStatut(<?php echo $reserv; ?>)" id="btn-statut-<?php echo $reserv; ?>" class="btn-statut non-retire">Non retiré</button>
+                          </td>
                         </tr>
                     <?php }} ?>
             </tbody>

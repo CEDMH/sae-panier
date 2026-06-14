@@ -108,7 +108,7 @@ background-image: url(../image/bars-solid.png) !important;
     };
     .case :hover {
         background-color: #FCF6EE;
-        color: #202632;
+        color: #194961;
     };
     .case-indisponible a {
         color: #ffffff;
@@ -118,6 +118,9 @@ background-image: url(../image/bars-solid.png) !important;
     };
     .active a{
         color: #000000;
+    }
+    article {
+    background-color: #194961;
     }
 }
 
