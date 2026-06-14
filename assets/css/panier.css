@@ -37,25 +37,10 @@ article {
 
 .boutons {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr; 
     gap: 15px; 
     margin-left: 5%;
     margin-right: 5%;
-}
-
-#paiement {
-    width: 100%;
-    color: #FCF6EE;
-    font-family: "Martel", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    background-color: #25bd11;
-    border: none;
-    padding: 3%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 0.25rem;
 }
 
 #retour {

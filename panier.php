@@ -141,7 +141,6 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     ?>
 
     <div class="boutons">
-      <button id="paiement">Payer</button>
       <a href="client-index.php" id="retour">Retour à l'accueil</a>
     </div>
 
