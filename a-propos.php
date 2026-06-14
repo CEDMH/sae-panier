@@ -13,7 +13,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>À PROPOS</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon-180x180.png">
@@ -48,21 +48,6 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
           </summary>
             <ul dir="ltr">
               <li class="case"><a href="client-index.php" class="active">Accueil</a></li>
-
-              <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-              <?php
-              $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 6) {
-              ?>
-              <li class="case"><a href="reservation.php">Réservation</a></li>
-              <?php
-              } else {
-              ?>
-              <li class="case-indisponible"><a href="#">Réservation</a></li>
-              <?php
-              }
-              ?>
-
               <li class="case"><a href="panier.php">Panier</a></li>
               <li class="case"><a href="a-propos.php">À propos</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
@@ -88,44 +73,28 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
   <main>
 
     <div id="super-accueil">
-      <p>L'épicerie Le Coin Des Saveurs vous souhaite le bonjour !</p>
+      <p>Notre priorité : vous proposer des produits frais et locaux !</p>
     </div>
 
     <article>
-      <h1>Bienvenue sur notre appli de réservation !</h1>
-      <p>Le mardi et le mercredi, vous pourrez retrouver ci dessous nos trois paniers que vous pourrez réserver.</p>
+      <h1>Le Coin des Saveurs</h1>
+      <p>Sur la page <strong><a href="./reservation.php">"Réservation"</a></strong> vous est proposé <strong>seulement le mardi et mercredi de chaque semaine</strong>, des paniers de produits locaux, préparés avec soin par M. Grenier !</p>
+    </article>
+    
+    <article>
+        <h1>Notre engagement</h1>
+        <p>Nous sélectionnons des produits frais et locaux pour composer des paniers adaptés à chaque foyer, en favorisant les circuits courts et les producteurs de la région.</p>
     </article>
 
-    <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
-    <?php
-
-      $aujourdhui = date('N');
-
-      if ($aujourdhui == 2 || $aujourdhui == 4) {
-    ?>
-
-    <article class="les-paniers">
-      <div class="paniers">
-        <h2>Réservez votre panier !</h2>
-        <img src="./assets/image/panier.jpg" class="image-panier">
-        <a href="reservation.php">Accéder aux reservations</a>
-      </div>
+    <article>
+        <h1>Retrait</h1>
+        <p>Les paniers réservés sont disponibles au retrait chaque vendredi. Vous pouvez retrouvé votre date de retrait sur la page <strong><a href="./panier.php">"Panier"</a></strong>.</p>
     </article>
 
-    <?php
-    } else {
-    ?>
-
-    <article class="message-fermeture">
-      <div class="paniers">
-        <h2>Réservations fermées</h2>
-        <p>Revenez bientôt pour réserver nos nouveaux paniers !</p>
-      </div>
+    <article>
+        <h1>Contact</h1>
+        <p>Pour toute question, contactez directement M. Grenier a l'adresse <strong>coindessaveurs@gmail.com</strong> ou rendz-vous à l'épicerie au xx rue de gordac, Gordac, 16000.</p>
     </article>
-
-    <?php
-    }
-    ?>
     
   </main>
 
