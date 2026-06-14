@@ -110,7 +110,7 @@ foreach ($paniers_mois as $mois) {
 
   <main>
 
-    <article class="statistiques">
+    <article>
       <h1>Statistiques</h1>
       <p>Vous pouvez voir les statistiques des ventes de paniers.</p>
     </article>
