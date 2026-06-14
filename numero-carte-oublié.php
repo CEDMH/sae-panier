@@ -102,10 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </li>
     </ul>
     <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.webp" id="titre"></li>
     </ul>
     <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
+      <li><img src="assets/image/logo.webp" id="logo"></li>
     </ul>
   </nav>
 
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="tel" id="telephone" name="telephone" required>
                     </div>
                     <div>
-                        <button type="submit">Se connecter</button>
+                        <button type="submit" id="se-connecter">Se connecter</button>
                     </div>
                 </section>
             </form>

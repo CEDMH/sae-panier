@@ -73,10 +73,10 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
       </li>
     </ul>
     <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.webp" id="titre"></li>
     </ul>
     <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
+      <li><img src="assets/image/logo.webp" id="logo"></li>
     </ul>
   </nav>
 
@@ -107,7 +107,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     <article class="les-paniers">
       <div class="paniers">
         <h2>Réservez votre panier !</h2>
-        <img src="./assets/image/panier.jpg" class="image-panier">
+        <img src="./assets/image/panier.webp" class="image-panier">
         <a href="reservation.php">Accéder aux reservations</a>
       </div>
     </article>

@@ -78,10 +78,10 @@ $liste_paniers = $requete->fetchAll();
       </li>
     </ul>
     <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.webp" id="titre"></li>
     </ul>
     <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
+      <li><img src="assets/image/logo.webp" id="logo"></li>
     </ul>
   </nav>
 
@@ -112,7 +112,7 @@ $liste_paniers = $requete->fetchAll();
             foreach ($liste_paniers as $panier) { ?>
               <div class="paniers">
                 <h2>Format du panier: <?php echo htmlspecialchars($panier['type']);?></h2>
-                <img src="./assets/image/panier.jpg" class="image-panier">
+                <img src="./assets/image/panier.webp" class="image-panier">
                 <p><?php echo htmlspecialchars($panier['description']); ?></p>
                 <p class="price"><?php echo htmlspecialchars((string)$panier['prix']);?>€</p>
                 <div class="reserver">

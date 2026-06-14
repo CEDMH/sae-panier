@@ -1,5 +1,5 @@
 #super-accueil {
-    background-image: url("./../image/epicerie-sombre.jpg");
+    background-image: url("./../image/epicerie-sombre.webp");
     background-size: cover;
     border-radius: 1.5rem;
     width: 90%;
@@ -19,7 +19,7 @@
 }
 
 #super-a-propos {
-    background-image: url("./../image/fraises.jpg");
+    background-image: url("./../image/fraises.webp");
     background-size: cover;
     border-radius: 1.5rem;
     width: 90%;

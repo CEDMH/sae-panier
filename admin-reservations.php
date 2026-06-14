@@ -71,10 +71,10 @@ $reservations = $pdo->query($sql)->fetchAll();
       </li>
     </ul>
     <ul>
-      <li class="lecoindessaveurs"><img src="assets/image/titre.png" id="titre"></li>
+      <li class="lecoindessaveurs"><img src="assets/image/titre.webp" id="titre"></li>
     </ul>
     <ul>
-      <li><img src="assets/image/logo.png" id="logo"></li>
+      <li><img src="assets/image/logo.webp" id="logo"></li>
     </ul>
   </nav>
 
