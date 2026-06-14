@@ -139,11 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </section>
             </form>
-        </section>
 
-        <section id="page-index">
             <p>Se connecter <a href="./index.php">Se connecter</a></p>
             <p>Vous êtes Administrateur ? <a href="./admin-login.php">Administrateur</a></p>
+            
         </section>
 
     </main>

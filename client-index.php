@@ -52,7 +52,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
               <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
               <?php
               $aujourdhui = date('N');
-              if ($aujourdhui == 2 || $aujourdhui == 6) {
+              if ($aujourdhui == 2 || $aujourdhui == 7) {
               ?>
               <li class="case"><a href="reservation.php">Réservation</a></li>
               <?php
@@ -100,7 +100,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
       $aujourdhui = date('N');
 
-      if ($aujourdhui == 2 || $aujourdhui == 4) {
+      if ($aujourdhui == 2 || $aujourdhui == 7) {
     ?>
 
     <article class="les-paniers">

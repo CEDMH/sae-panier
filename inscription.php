@@ -151,10 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </section>
             </form>
 
-        </section>
-
-        <section id="page-index">
             <p>Déjà un compte ? <a href="./index.php">Se connecter</a></p>
+            
         </section>
 
     </main>

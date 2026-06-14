@@ -1,6 +1,6 @@
 .les-paniers {
-    margin-right: 13%;
-    margin-left: 13%;
+    margin-right: 10%;
+    margin-left: 10%;
     margin-top: 8%;
     border-radius: 0.5rem;
 }
@@ -15,7 +15,7 @@
     border-style: solid;
     border-color: #dbd5ce;
     border-width: 4px;
-    padding: 10%;
+    padding: 9%;
     border-radius: 1.75rem;
     background-color: #FCF6EE;
     box-shadow: -3px 3px 15px;
@@ -53,6 +53,18 @@
 .price {
     font-size: 30px;
     color: rgb(1, 172, 1);
+}
+
+article p {
+    text-align:center;
+}
+
+article h1 {
+    text-align:center;
+}
+
+article {
+    margin-top:15px;
 }
 
 [data-theme=dark]{
