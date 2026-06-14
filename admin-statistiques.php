@@ -7,11 +7,13 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 }
 
 
-// ============ NOMBRE DE PANIERS PAR MOIS ============ //
+// requete sql qui va chercher la date de retrait pour l'organiser en année/mois et le mettre dans mois //
+// inversement ou on organise en mois/année et on le met dans mois_pannier //
+// on conpte aussi toute les ligne de reservation pour le mettre dans nombre //
 $requete1 = $pdo->prepare("
     SELECT 
     DATE_FORMAT(date_retrait, '%Y-%m') AS mois,
-    DATE_FORMAT(date_retrait, '%M %Y') AS mois_label,
+    DATE_FORMAT(date_retrait, '%M %Y') AS mois_panier,
     COUNT(*) AS nombre
     FROM reservations
     GROUP BY mois
@@ -31,7 +33,7 @@ $max      = 0;
 foreach ($paniers_par_mois as $mois) {
     if ($mois['nombre'] > $max) {
         $max      = $mois['nombre'];
-        $mois_max = $mois['mois_label'];
+        $mois_max = $mois['mois_panier'];
     }
 }
 ?>
@@ -112,15 +114,19 @@ foreach ($paniers_par_mois as $mois) {
     </article>
 
     <section>
-      <h2>Résumé</h2>
-      <p>Moyenne de paniers retirés par mois : <strong><?php echo $moyenne ?></strong></p>
-      <p>Mois le plus rentable : <strong><?php echo htmlspecialchars($mois_max) ?></strong> avec <strong><?php echo $max ?></strong> paniers</p>
+      <h2>Moyenne de paniers retirés par mois</h2>
+      <p>La moyenne est de : <strong><?php echo $moyenne ?></strong></p>
+    </section>
+      
+    <section>
+      <h2>Mois le plus rentable</h2>
+      <p>Le mois le plus rentable est : <strong><?php echo htmlspecialchars($mois_max) ?></strong> avec <strong><?php echo $max ?></strong> paniers</p>
     </section>
 
     <section>
-      <h2>Nombre de panier par mois</h2>
+      <h2>Nombre de paniers par mois</h2>
       <?php foreach ($paniers_par_mois as $mois): ?>
-        <p><?php echo htmlspecialchars($mois['mois_label']) ?> : <strong><?php echo $mois['nombre'] ?></strong> paniers</p>
+        <p><?php echo htmlspecialchars($mois['mois_panier']) ?> : <strong><?php echo $mois['nombre'] ?></strong> paniers</p>
       <?php endforeach; ?>
     </section>
 
