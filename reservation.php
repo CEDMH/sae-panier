@@ -6,6 +6,7 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
     exit;
 }
 
+// Cette fonction va récupérer toutes les informations du tableau paniers de la base de donnée pour les stocker dans la variable $liste_paniers.
 $requete = $pdo->query("SELECT type, description, prix, date_retrait FROM paniers");
 $liste_paniers = $requete->fetchAll();
 ?>
@@ -94,7 +95,6 @@ $liste_paniers = $requete->fetchAll();
     <!-- FONCTION PHP QUI PERMET DE SAVOIR QUEL JOUR ON EST ET D'AFFICHER OU NON LE CONTENU -->
 
     <?php
-
       $aujourdhui = date('N');
 
       if ($aujourdhui == 2 || $aujourdhui == 3) {
@@ -107,6 +107,7 @@ $liste_paniers = $requete->fetchAll();
       
       <div class="les-paniers">
         <?php
+        // Cette fonction liste tous les paniers rentrés dans la base de donnée par l'administrateur et les propose aux clients qui peuvent réserver celui qui veulent en appuyant sur le bouton et envoie en POST
         if (count($liste_paniers) > 0) {
             foreach ($liste_paniers as $panier) { ?>
               <div class="paniers">
@@ -123,6 +124,7 @@ $liste_paniers = $requete->fetchAll();
                 </div>
               </div>
       <?php } } else { ?>
+          <!-- Si aucun panier n'est disponible dans la base de donnée alors ça revoit ce message là. -->
           <p>Aucun panier n'est disponible à la réservation pour le moment.</p>
       <?php } ?>
       </div>
