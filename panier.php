@@ -88,33 +88,28 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
 
   <main>
     <?php
-
+// on recupere le numero de la carte du client qu'on stocke dans $num_carte //
       if (isset($_SESSION['client_carte'])) {
           $num_carte = $_SESSION['client_carte'];
           
           try {
 
-              $reqClient = $pdo->prepare("SELECT nom, prenom FROM clients WHERE num_carte_fidelite = :carte");
-              $reqClient->execute([':carte' => $num_carte]);
-              $client = $reqClient->fetch();
+              $requete = $pdo->prepare("SELECT nom, prenom FROM clients WHERE num_carte_fidelite = :carte");
+              $requete->execute([':carte' => $num_carte]);
+              $client = $requete->fetch();
 
               if ($client) {
+// on recupere les données qu'on va afficher tel que le type de panier, la date de commande et la date de retrait //
+                $requete1 = $pdo->prepare("SELECT type_panier, date_commande, date_retrait FROM reservations WHERE nom = :nom AND prenom = :prenom ORDER BY date_commande DESC");
+                $requete1->execute([':nom' => $client['nom'],':prenom' => $client['prenom']]);
+                $mes_reservations = $requete1->fetchAll();
 
-                  $reqRes = $pdo->prepare("SELECT type_panier, date_commande, date_retrait 
-                                          FROM reservations 
-                                          WHERE nom = :nom AND prenom = :prenom 
-                                          ORDER BY date_commande DESC");
-                  $reqRes->execute([
-                      ':nom'    => $client['nom'],
-                      ':prenom' => $client['prenom']
-                  ]);
-
-                  $mes_reservations = $reqRes->fetchAll();
 
                   echo "<article>
                           <h1>Mes réservations :</h1>
                           <p>Ici vous pourrez retrouver toutes vos réservations</p>
                         </article>";
+                  // affichage des données récuperer en ammont et formulaire d'envoi pour le bouton pour supprimer avec un onsubmit // 
                   if (count($mes_reservations) > 0) {
                       foreach ($mes_reservations as $res) {
                           echo "<div class=reservation-clients>";
@@ -134,8 +129,8 @@ if (!(!empty($_SESSION['client_carte']) || (!empty($_SESSION['client_nom']) && !
                       echo "<p class=pas-reserv>Vous n'avez pas encore fait de réservation.</p>";
                   }
               }
-          } catch (PDOException $e) {
-              echo "Erreur d'affichage : " . $e->getMessage();
+          } catch (PDOException $erreur) {
+              echo "Erreur d'affichage : " . $erreur->getMessage();
           }
       }
     ?>
