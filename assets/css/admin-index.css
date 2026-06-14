@@ -34,21 +34,29 @@
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
 [data-theme=dark]{
-    .paniers a{
-        color: #202632;
-        background-color: #FCF6EE;
-    }
-    .paniers h2{
+    .lien-gestion {
         color: #FCF6EE;
+        background-color: #194961;
+        border-color: #EE7744;
+        border-width: 1px;
+        border-style: solid;
+    }
+    .lien-gestion h2{
+        color: #FCF6EE;
+    }
+    .gestion a {
+        background-color: #EE7744;
     }
 }
 
 /*ACTIVATION POLICE OPENDYSLEXIC*/
 [dyslexie-text=dys]{
-    .paniers a{
+    .gestion a{
         font-family: "OpenDyslexic", Arial, sans-serif;
+        font-size: 9px;
     }
-    .paniers h2{
+    .lien-gestion h2{
         font-family: "OpenDyslexic", Arial, sans-serif;
     }
 }
+

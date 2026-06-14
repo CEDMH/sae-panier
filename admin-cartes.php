@@ -129,7 +129,7 @@ $clients = $requete3->fetchAll();
     <section>
 <!-- Affichage du numero de carte de fidélité de la personne et de son statut (bloqué ou actif) -->
         <p> 
-            La carte : "<?php echo htmlspecialchars($client['num_carte_fidelite']) ?>" est <?php echo $client['est_bloque'] ? '<strong>BLOQUÉ</strong>' : 'Active' ?>
+            La carte : "<?php echo htmlspecialchars($client['num_carte_fidelite']) ?>" est <?php echo $client['est_bloque'] ? '<strong>BLOQUÉE</strong>' : 'Active' ?>
         </p>
 <!-- formulaire de modification des informations du client (selectionner avec l'id qui est l'identification) avec le boutons de validation  -->
         <form action="" method="post">

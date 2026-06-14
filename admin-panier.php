@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <li class="case"><a href="admin-panier.php" class="active">Paniers</a></li>
               <li class="case"><a href="admin-reservations.php">Réservations</a></li>
               <li class="case"><a href="admin-cartes.php">Cartes</a></li>
+              <li class="case"><a href="admin-statistiques.php">Statistiques</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
               <!-- LES TROIS BOUTONS DU NIGHT MOD, LIGHT MOD ET DYSLEXIC MOD -->
               <li><button onclick="modeJour()"><i class="fa-solid fa-sun"></i></button> <button onclick="modeNuit()"><i class="fa-solid fa-moon"></i></button> <button onclick="modeDys()"><i class="fa-solid fa-universal-access"></i></button></li>

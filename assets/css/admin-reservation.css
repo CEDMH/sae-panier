@@ -23,6 +23,7 @@
     border-bottom-style: solid;
     border-bottom-color: #d1cbc2;
     border-bottom-width: 1px;
+    color: #194961;
 }
 
 .tableau td {
@@ -63,5 +64,18 @@
     .conteneur-tableau {
         font-family: "OpenDyslexic", Arial, sans-serif;
         font-size: 9px;
+    }
+}
+
+/*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/
+[data-theme=dark]{
+    .tableau th {
+        border-bottom-color: #EE7744;
+        color: #FCF6EE;
+        background-color: #194961;
+    }
+    .tableau td {
+        border-bottom-color: #EE7744;
+        color: #FCF6EE;
     }
 }
