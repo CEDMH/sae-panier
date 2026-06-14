@@ -91,7 +91,7 @@ $reservations = $pdo->query($sql)->fetchAll();
         <p>Ici vous pouvez consulter toutes les réservations effectuées par vos clients et cocher s'ils ont récupéré ou non leur commandes.</p>
       </article>
         <!-- TABLEAU LISTE LES RESERV ET MR GRENIER PEUT COCHER RETIRE OU PAS GRACE A AU SCRIPT JS -->
-        <table role="grid">
+        <table role="grid" class="tableau">
             <thead>
                 <tr>
                     <th>Nom / Prénom</th>
