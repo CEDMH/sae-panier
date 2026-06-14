@@ -26,9 +26,10 @@
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    background-color: #202632;
+    background-color: #194961;
     padding: 3%;
     border-radius: 0.75rem;
+    font-size: 14px;
 }
 
 /*THEME SOMBRE DE L'APPLI, LE CODE CI-DESSOUS S'APPLIQUE QUAND MODE SOMBRE CLIQUE*/

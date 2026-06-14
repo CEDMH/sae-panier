@@ -115,7 +115,7 @@ $clients = $requete3->fetchAll();
   <main>
 
     <article>
-      <h1>Géstion des cartes clients</h1>
+      <h1>Gestion des cartes clients</h1>
       <p>Vous pouvez débloquer, modifier ou supprimer les cartes de vos clients.</p>
     </article>
 <!-- Affichage des message de succées -->
@@ -156,19 +156,19 @@ $clients = $requete3->fetchAll();
                 <input type="tel"   name="telephone" value="<?php echo htmlspecialchars($client['telephone']) ?>" required>
             </div>
             
-            <button type="submit" name="modifier">Valider la modification</button>
+            <button type="submit" name="modifier" class="bouton-vd">Valider la modification</button>
         </form>
 <!-- Formulaire du bouton pour débloqué la cartes qui s'affiche que si est_bloque est égale a 1 dans la BDD  -->
         <?php if ($client['est_bloque'] == 1): ?>
         <form action="" method="post">
             <input type="hidden" name="id" value="<?php echo $client['id'] ?>">
-            <button type="submit" name="debloquer">Débloquer</button>
+            <button type="submit" name="debloquer" class="bouton-db">Débloquer</button>
         </form>
         <?php endif; ?>
 <!-- Formulaire du bouton pour supprimer un compte client avec un onsubmit qui permet d'avoir une fenetre modale en pop-up  -->
         <form action="" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer définitivement cette carte ?');" style="margin: 0;">
             <input type="hidden" name="id" value="<?php echo $client['id'] ?>">
-            <button type="submit" name="supprimer">Supprimer</button>
+            <button type="submit" name="supprimer" class="bouton-spr">Supprimer</button>
         </form>
     
     </section>

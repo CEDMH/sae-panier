@@ -1,27 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+.conteneur-tableau {
+    width: 100%;
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .tableau {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-top: 20px;
+}
+
+.tableau th {
+    padding: 12px;
+    text-align: left;
+    border-bottom-style: solid;
+    border-bottom-color: #d1cbc2;
+    border-bottom-width: 1px;
+}
+
+.tableau td {
+    padding: 12px;
+    text-align: left;
+    border-bottom-style: solid;
+    border-bottom-color: #d1cbc2;
+    border-bottom-width: 1px;
 }
 
 .cellule-statut {
-    text-align: center;
+    text-align: center !important;
     vertical-align: middle;
     width: 160px;
 }
 
 .btn-statut {
+    display: inline-block;
     padding: 5px 10px;
     font-size: 0.85rem;
     font-weight: bold;
     border: none;
-    color: white;
+    color: #FCF6EE;
     margin: 0;
     width: 100%;
     max-width: 140px;
     transition: background-color 0.2s ease;
-    background-color: #ff9800;
+    background-color: #EE7744;
 }
 
 .tableau-vide {
     text-align: center;
     color: #888;
+}
+
+/*ACTIVATION POLICE OPENDYSLEXIC*/
+[dyslexie-text=dys]{
+    .conteneur-tableau {
+        font-family: "OpenDyslexic", Arial, sans-serif;
+        font-size: 9px;
+    }
 }
