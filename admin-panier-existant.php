@@ -7,31 +7,30 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 }
 
 $message = "";
-
+// On récupère les informations via le formulaire dédié que l'admin a changé ou modifié //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    // MODIFIER UN PANIER EXISTANT
     if (isset($_POST['action_type']) && $_POST['action_type'] === 'modifier') {
         $id = $_POST['id_panier'];
         $type = trim($_POST['type']);
         $description = trim($_POST['description']);
         $prix = $_POST['prix'];
         $date_retrait = $_POST['date_retrait'];
-        $req = $pdo->prepare("UPDATE paniers SET type = :type, description = :desc, prix = :prix, date_retrait = :date_retrait WHERE id = :id");
-        $req->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait,':id' => $id]);
+// puis on modifie la BDD avec "UPDATE" qui va tout remplacer avec les données fournis avec un message de succès. //
+        $requete = $pdo->prepare("UPDATE paniers SET type = :type, description = :desc, prix = :prix, date_retrait = :date_retrait WHERE id = :id");
+        $requete->execute([':type' => $type,':desc' => $description,':prix' => $prix,':date_retrait' => $date_retrait,':id' => $id]);
         $message = "Le panier est mis à jour !";
     }
-
-    // SUPPRIMER UN PANIER
+// On récupère l'information de si l'admin a cliqué sur le bouton supprimer via le formulaire dédié, //
+// puis on prépare la requête pour delete le paner via son "id_panier" avec un message de succès //
     if (isset($_POST['action_type']) && $_POST['action_type'] === 'supprimer') {
         $id = $_POST['id_panier'];
 
-        $req = $pdo->prepare("DELETE FROM paniers WHERE id = :id");
-        $req->execute([':id' => $id]);
+        $requete2 = $pdo->prepare("DELETE FROM paniers WHERE id = :id");
+        $requete2->execute([':id' => $id]);
         $message = "Le panier a été supprimé définitivement.";
     }
 }
-
+// on met tout le contenu de la table paniers dans $paniers sous forme de tableau //
 $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
 
 ?>
@@ -102,11 +101,9 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
   <br>
 
     <main>
-
+<!-- condition qui dit que si un "message" est déclanché plus haut il s'affiche ici -->
         <?php if (!empty($message)){ ?>
-            <article class="message">
-                <?php echo $message; ?>
-            </article>
+            <article class="message"><?php echo $message; ?></article>
         <?php } ?>
         
         <article>
@@ -115,10 +112,10 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
         </article>
 
         <section class="section-page-paniers">
-
+<!-- On parcour $paniers et on assigne la valeur de l'élément courant dans $panier  -->
             <?php foreach ($paniers as $panier){ ?>
                 <article class="paniers">
-                    
+<!-- formulaire de modification des informations du client (selectionner avec l'id qui est l'identification) avec le boutons de validation  -->                    
                     <form action="" method="POST">
                         <input type="hidden" name="id_panier" value="<?php echo $panier['id']; ?>">
                         <input type="hidden" name="action_type" value="modifier">
@@ -143,7 +140,7 @@ $paniers = $pdo->query("SELECT * FROM paniers")->fetchAll();
                         
                         <button type="submit" class="bouton-mj">Mettre à jour</button>
                     </form>
-
+<!-- Formulaire du bouton pour supprimer un panier avec un onsubmit qui permet d'avoir une fenetre modale en pop-up  -->
                     <form action="" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer définitivement ce format de panier ?');">
                         <input type="hidden" name="id_panier" value="<?php echo $panier['id']; ?>">
                         <input type="hidden" name="action_type" value="supprimer">

@@ -20,17 +20,20 @@ $requete1 = $pdo->prepare("
     ORDER BY mois ASC
 ");
 $requete1->execute();
-$paniers_par_mois = $requete1->fetchAll();
+$paniers_mois = $requete1->fetchAll();
 
-// ============ MOYENNE DE PANIERS PAR MOIS ============ //
-$total_paniers = array_sum(array_column($paniers_par_mois, 'nombre'));
-$total_mois    = count($paniers_par_mois);
+// on effectue la moyenne en commancant par additioner toute la colonne 'nombre' et $total_panier //
+// on compte le total de $paniers_par_mois //
+// puis dans $moyenne on verrifi si il y a au moins 1 reservation et on calcule la moyenne en arrodisant // 
+$total_paniers = array_sum(array_column($paniers_mois, 'nombre'));
+$total_mois    = count($paniers_mois);
 $moyenne       = $total_mois > 0 ? round($total_paniers / $total_mois, 1) : 0;
 
-// ============ MOIS LE PLUS RENTABLE ============ //
+// on definit $mois_max  et $max à 0 //
+// puis on parcourt $panier_mois pour que si le 'nombre' de panier est plus haut que $max on met a jour $max et $mois-max //
 $mois_max = null;
 $max      = 0;
-foreach ($paniers_par_mois as $mois) {
+foreach ($paniers_mois as $mois) {
     if ($mois['nombre'] > $max) {
         $max      = $mois['nombre'];
         $mois_max = $mois['mois_panier'];
@@ -83,6 +86,7 @@ foreach ($paniers_par_mois as $mois) {
             <ul dir="ltr">
               <li class="case"><a href="admin-index.php" class="active">Accueil</a></li>
               <li class="case"><a href="admin-reservations.php">Paniers</a></li>
+              <li class="case"><a href="admin-reservations.php">Réservations</a></li>
               <li class="case"><a href="admin-cartes.php">Cartes</a></li>
               <li class="case"><a href="admin-statistiques.php">Statistiques</a></li>
               <li class="deco"><a href="./back/deconnexion.php">Déconnexion</a></li>
@@ -112,20 +116,20 @@ foreach ($paniers_par_mois as $mois) {
       <h1>Statistiques</h1>
       <p>Vous pouvez voir les statistiques des ventes de paniers.</p>
     </article>
-
+<!-- On affiche la moyenne qui est $moyenne -->
     <section>
       <h2>Moyenne de paniers retirés par mois</h2>
       <p>La moyenne est de : <strong><?php echo $moyenne ?></strong></p>
     </section>
-      
+<!-- On affiche le mois le plus retable qui est $mois_max avec le nombre de panier ($max) -->      
     <section>
       <h2>Mois le plus rentable</h2>
       <p>Le mois le plus rentable est : <strong><?php echo htmlspecialchars($mois_max) ?></strong> avec <strong><?php echo $max ?></strong> paniers</p>
     </section>
-
+<!-- On parcourt le tableau $panier_mois pour en afficher la date et le nombre de paniers -->
     <section>
       <h2>Nombre de paniers par mois</h2>
-      <?php foreach ($paniers_par_mois as $mois): ?>
+      <?php foreach ($paniers_mois as $mois): ?>
         <p><?php echo htmlspecialchars($mois['mois_panier']) ?> : <strong><?php echo $mois['nombre'] ?></strong> paniers</p>
       <?php endforeach; ?>
     </section>

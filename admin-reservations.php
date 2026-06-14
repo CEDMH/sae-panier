@@ -7,12 +7,12 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     exit;
 }
 
-//Sélectionne dans la bd les infos des reservations et fusionne le prénom et le nom du client avec celui inscrit sur la réserv et les classes par ordre ascendant
+//Sélectionne dans la BDD les infos des reservations et fusionne le prénom et le nom du client avec celui inscrit sur la réserv et les classes par ordre ascendant //
 $sql = "SELECT reservations.nom, reservations.prenom, reservations.type_panier, reservations.date_commande, reservations.date_retrait, clients.num_carte_fidelite 
         FROM reservations 
         LEFT JOIN clients ON reservations.nom = clients.nom AND reservations.prenom = clients.prenom
         ORDER BY reservations.nom ASC";
-
+// le tout mit dans $reservations sous forme d'un tableau //
 $reservations = $pdo->query($sql)->fetchAll();
 
 ?>
@@ -91,7 +91,7 @@ $reservations = $pdo->query($sql)->fetchAll();
         <p>Ici vous pouvez consulter toutes les réservations effectuées par vos clients et cocher s'ils ont récupéré ou non leur commandes.</p>
       </article>
       <div class="conteneur-tableau">
-        <!-- TABLEAU LISTE LES RESERV ET MR GRENIER PEUT COCHER RETIRE OU PAS GRACE A AU SCRIPT JS -->
+<!-- TABLEAU LISTE LES RESERV ET MR GRENIER PEUT COCHER RETIRE OU PAS GRACE A AU SCRIPT JS -->
         <table role="grid" class="tableau">
             <thead>
                 <tr>

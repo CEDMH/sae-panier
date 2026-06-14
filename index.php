@@ -2,7 +2,7 @@
 require 'bootstrap.php';
 
 
-$error = '';
+$erreur = '';
 // On vient recuperer l'info rentrer par l'utilisateur dans le formulaire //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $numerocarte = trim($_POST['numerocarte'] ?? '');
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // condition pour savoir si la carte est bloqué avec les infos recuperer de la BD stocké dans $client //
 // puis stockage des infos importantes dans les variables $_SESSION et redirection vers la page // 
             if ($client['est_bloque'] == 1) {
-                $error = 'Votre compte est bloqué. Veuillez contacter le gérant.';
+                $erreur = 'Votre compte est bloqué. Veuillez contacter le gérant.';
             } else {
                 
                 $_SESSION['client_carte']  = $client['num_carte_fidelite'];
@@ -45,10 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } else {
-            $error = 'Numéro de carte de fidélité introuvable.';
+            $erreur = 'Numéro de carte de fidélité introuvable.';
         }
     } else {
-        $error = 'Veuillez saisir votre numéro de carte.';
+        $erreur = 'Veuillez saisir votre numéro de carte.';
     }
 }
 ?>
@@ -120,8 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Bienvenue sur le site</h1>
             <p>Identifiez-vous avec votre numéro de carte de fidélité.</p>
             <!-- // condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici // -->
-            <?php if ($error){ ?>
-            <p><?php echo htmlspecialchars($error) ?></p>
+            <?php if ($erreur){ ?>
+            <p><?php echo htmlspecialchars($erreur) ?></p>
             <?php } ?>
             <!-- // formulaire où les infos sont transmisent en method POST // -->
             <form action="" method="post">

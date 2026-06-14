@@ -1,7 +1,7 @@
 <?php 
 require 'bootstrap.php';
 
-$error = '';
+$erreur = '';
 // On vient recuperer l'info rentrer par l'utilisateur dans le formulaire //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = trim($_POST['nom'] ?? '');
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telephone = trim($_POST['telephone'] ?? '');
 
     if ($nom && $prenom && $adresse && $email && $telephone) {
-
+// on genere un numero de carte unique (systeme trouver sur un forum) puis on la stocke dans $numerocarte //
         do {
             $numerocarte = strtoupper(substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 6));
             $requete = $pdo->prepare('SELECT id FROM clients WHERE num_carte_fidelite = :numerocarte LIMIT 1');
@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } 
 
         while ($requete->fetch());
-
+// on insert les infos rentrer par le client dans la BDD //
         $requete2 = $pdo->prepare("INSERT INTO clients (nom, prenom, adresse, email, telephone, num_carte_fidelite, date_creation) VALUES (:nom, :prenom, :adresse, :email, :telephone, :num_carte_fidelite, NOW())");
         $inscription = $requete2->execute(['nom' => $nom, 'prenom' => $prenom, 'adresse' => $adresse, 'email' => $email, 'telephone' => $telephone, 'num_carte_fidelite' => $numerocarte,]);
-        
+// on prepare le mail et son organisation et dans le $header on indique de quelle adresse mail on l'envoie et ou on recois si on nous repond + infos techniques //       
     if ($inscription) {
 
         $email_subject = "Votre carte de fidélité - Le Coin des Saveurs";
@@ -42,14 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mail($email, $email_subject, $email_message, $headers);
            
 
-            $error = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte . '. Un email de confirmation vous a été envoyé, pensez à verifier vos Spams.';
+            $erreur = 'Votre carte a bien été créée ! Votre numéro de carte est : ' . $numerocarte . '. Un email de confirmation vous a été envoyé, pensez à verifier vos Spams.';
 
         } else {
-            $error = 'Erreur lors de l\'inscription.';
+            $erreur = 'Erreur lors de l\'inscription.';
         }
 
     } else {
-        $error = 'Veuillez remplir tous les champs.';
+        $erreur = 'Veuillez remplir tous les champs.';
     }
 }
 ?>
@@ -118,11 +118,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <h1>Créer un compte</h1>
             <p>Remplissez le formulaire pour obtenir votre carte de fidélité.</p>
-            
-            <?php if ($error){ ?>
-            <p><?php echo htmlspecialchars($error) ?></p>
-            <?php } ?>
 
+<!-- condition qui dit que si une erreur est déclanché plus haut elle s'affiche ici -->          
+            <?php if ($erreur){ ?>
+            <p><?php echo htmlspecialchars($erreur) ?></p>
+            <?php } ?>      
+<!-- Le formulaire avec son bouton de validation -->
             <form action="" method="post">
                 <section>
                     <div>
